@@ -3,6 +3,10 @@
 import { useEffect, useState } from "react";
 
 function getDimension() {
+  if (typeof window === "undefined") {
+    return { width: 0, height: 0 };
+  }
+
   const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
@@ -10,32 +14,20 @@ function getDimension() {
   };
 }
 
-function getScrollY() {
-  const { scrollY } = window;
-  return scrollY;
-}
-
 export default function useWindow() {
   const [dimension, setDimension] = useState(getDimension());
-  const [scrollY, setScrollY] = useState(getScrollY());
 
   useEffect(() => {
     function handleResize() {
       setDimension(getDimension());
     }
 
-    function handleScroll() {
-      setScrollY(getScrollY());
-    }
-
     window.addEventListener("resize", handleResize);
-    window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
-  return { dimension, scrollY };
+  return { dimension };
 }
