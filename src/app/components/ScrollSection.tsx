@@ -1,18 +1,19 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import useWindowDimensions from "../hooks/useWindow";
+import useWindowDimensions from "@/app/hooks/useWindow";
 
 export default function ScrollSection({ id }: { id: number }) {
   const { dimension } = useWindowDimensions();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLElement>(null);
 
+  const totalImages = 300;
   let canvasImages: HTMLImageElement[] = [];
   let scrollHeight = 0;
 
   function initCanvasImages() {
-    for (let i = 0; i < 300; i++) {
+    for (let i = 0; i < totalImages; i++) {
       const imageElem = new Image();
       imageElem.src = `/videos/001/IMG_${6726 + i}.JPG`;
       canvasImages.push(imageElem);
@@ -39,14 +40,13 @@ export default function ScrollSection({ id }: { id: number }) {
     const heightRatio = dimension.height / 1080;
     if (canvasRef?.current) {
       canvasRef.current.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`;
+      canvasRef.current.getContext("2d")?.drawImage(canvasImages[0], 0, 0);
     }
   }
 
   let rafState = false;
   let rafId = 0;
   function handleScroll() {
-    console.log("scrollY", window.scrollY);
-
     if (!rafState) {
       rafId = requestAnimationFrame(loop);
       rafState = true;
@@ -58,11 +58,7 @@ export default function ScrollSection({ id }: { id: number }) {
   function loop() {
     delayedYOffset = delayedYOffset + (scrollY - delayedYOffset) * acc;
 
-    const sequence = Math.round(calcValues([0, 299], scrollY));
-
-    console.log("sequence", sequence);
-    console.log("scrollY", scrollY);
-
+    const sequence = Math.round(calcValues([0, totalImages - 1], scrollY));
     if (canvasImages[sequence] && canvasRef?.current) {
       canvasRef?.current
         .getContext("2d")
@@ -87,9 +83,6 @@ export default function ScrollSection({ id }: { id: number }) {
 
     return rv;
   }
-
-  //   console.log("height", dimension.height);
-  //   console.log("scrollY", scrollY);
 
   return (
     <section
