@@ -1,4 +1,11 @@
-const Links = ["기업소개", "사업분야", "기술현황", "실적/사례", "고객센터"];
+const Links = [
+  "MADYN",
+  "기업소개",
+  "사업분야",
+  "기술현황",
+  "실적/사례",
+  "고객센터",
+];
 
 export default function Header() {
   return (
