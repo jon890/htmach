@@ -60,7 +60,7 @@ export default function ScrollSection() {
       ref={containerRef}
     >
       <Image
-        src="/images/bg-business-overview.jpg"
+        src="/images/bg-pump-remanufacturing.jpg"
         alt="bg-business-overview"
         height="1024"
         width="1024"
@@ -73,7 +73,7 @@ export default function ScrollSection() {
             ? {
                 opacity: calcScrollEffect({
                   start: 0,
-                  end: 0.7,
+                  end: 0.5,
                   part: { start: -0.1, end: 0.1 },
                   scrollHeight,
                   totalScrollHeight,
@@ -81,7 +81,7 @@ export default function ScrollSection() {
               }
             : {
                 opacity: calcScrollEffect({
-                  start: 0.7,
+                  start: 0.5,
                   end: 0,
                   part: { start: 0.9, end: 1 },
                   scrollHeight,
@@ -131,11 +131,13 @@ export default function ScrollSection() {
                 }
         }
       >
-        <h1 className="text-center text-7xl font-bold text-white">
+        <h1 className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-7xl font-semibold leading-relaxed text-transparent">
           사업 분야 소개
         </h1>
         <br />
-        <p className="text-center text-5xl font-bold text-white">1. 재제조</p>
+        <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
+          1. 재제조
+        </p>
       </MainMessage>
 
       <MainMessage
@@ -181,7 +183,7 @@ export default function ScrollSection() {
                 }
         }
       >
-        <p className="max-w-[1000px] text-center text-5xl font-semibold leading-relaxed text-white">
+        <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
           펌프 One-Stop 재제조 서비스를 통한 <br />
           로터에 대한 설계, 역설계 연구 역량을 <br /> 보유하고 있습니다.
         </p>
