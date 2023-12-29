@@ -3,6 +3,7 @@
 import useWindowDimensions from "@/hooks/useWindow";
 import { calcScrollEffect } from "@/lib/calc-scroll-effect";
 import classnames from "@/lib/classnames";
+import Image from "next/image";
 import {
   CSSProperties,
   ForwardedRef,
@@ -13,7 +14,6 @@ import {
 } from "react";
 
 export default function ScrollSection() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLElement>(null);
 
   const { dimension } = useWindowDimensions();
@@ -35,22 +35,12 @@ export default function ScrollSection() {
   useEffect(() => {
     setTotalScrollHeight(dimension.height * 4 - prevHeight);
 
-    const image = new Image();
-    image.src = "/images/bg-business-overview.jpg";
-    image.onload = function () {
-      if (canvasRef?.current) {
-        const heightRatio = dimension.height / 1080;
-        canvasRef.current.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`;
-        canvasRef.current.getContext("2d")?.drawImage(image, 0, 0);
-      }
-    };
-
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [dimension.height, prevHeight, canvasRef, containerRef, handleScroll]);
+  }, [dimension, prevHeight, containerRef, handleScroll]);
 
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleScroll() {
@@ -65,44 +55,41 @@ export default function ScrollSection() {
 
   return (
     <section
-      className="relative w-full bg-gray-500 pt-[50vh]"
+      className="relative w-full pt-[50vh]"
       style={{ height: totalScrollHeight }}
       ref={containerRef}
     >
-      <div
+      <Image
+        src="/images/bg-business-overview.jpg"
+        alt="bg-business-overview"
+        height="1024"
+        width="1024"
         className={classnames(
-          "fixed left-0 top-0 h-full w-full",
-          scrollHeight >= 0 ? "block" : "hidden",
+          "fixed top-0 w-full object-cover",
+          scrollRatio > 0.7 ? "h-[calc(100vh-192px)]" : "h-full",
         )}
-      >
-        <canvas
-          className="absolute left-1/2 top-1/2"
-          width="1000"
-          height="1000"
-          ref={canvasRef}
-          style={
-            scrollRatio <= 0.5
-              ? {
-                  opacity: calcScrollEffect({
-                    start: 0,
-                    end: 0.5,
-                    part: { start: -0.25, end: 0.1 },
-                    scrollHeight,
-                    totalScrollHeight,
-                  }),
-                }
-              : {
-                  opacity: calcScrollEffect({
-                    start: 0.5,
-                    end: 0,
-                    part: { start: 0.9, end: 1 },
-                    scrollHeight,
-                    totalScrollHeight,
-                  }),
-                }
-          }
-        />
-      </div>
+        style={
+          scrollRatio <= 0.5
+            ? {
+                opacity: calcScrollEffect({
+                  start: 0,
+                  end: 0.7,
+                  part: { start: -0.1, end: 0.1 },
+                  scrollHeight,
+                  totalScrollHeight,
+                }),
+              }
+            : {
+                opacity: calcScrollEffect({
+                  start: 0.7,
+                  end: 0,
+                  part: { start: 0.9, end: 1 },
+                  scrollHeight,
+                  totalScrollHeight,
+                }),
+              }
+        }
+      />
 
       <MainMessage
         style={
