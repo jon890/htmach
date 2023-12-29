@@ -2,55 +2,41 @@
 
 import useWindowDimensions from "@/hooks/useWindow";
 import { calcScrollEffect } from "@/lib/calc-scroll-effect";
-import React, { ForwardedRef, useEffect, useRef } from "react";
+import { ForwardedRef, forwardRef, useEffect, useRef } from "react";
 
-export default function ScrollSection({ id }: { id: number }) {
+export default function ScrollSection() {
   const { dimension } = useWindowDimensions();
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const containerRef = useRef<HTMLElement>(null);
   const mainMessage1Ref = useRef<HTMLDivElement>(null);
   const mainMessage2Ref = useRef<HTMLDivElement>(null);
 
-  const totalImages = 300;
-  let canvasImages: HTMLImageElement[] = [];
-  let scrollHeight = 0; // 전체 스크롤 길이
-
-  function initCanvasImages() {
-    for (let i = 0; i < totalImages; i++) {
-      const imageElem = new Image();
-      imageElem.src = `/videos/001/IMG_${6726 + i}.JPG`;
-      canvasImages.push(imageElem);
-    }
-  }
+  const prevHeight = dimension.height;
+  let totalScrollHeight = 0;
 
   useEffect(() => {
-    initCanvasImages();
-    setLayout();
+    setContainerHeight();
     window.addEventListener("scroll", handleScroll);
 
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [canvasRef, containerRef]);
+  }, [canvasRef, containerRef, handleScroll, setContainerHeight]);
 
-  function setLayout() {
-    scrollHeight = dimension.height * 5;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  function setContainerHeight() {
+    totalScrollHeight = dimension.height * 5 - prevHeight;
 
     if (containerRef?.current) {
-      containerRef.current.style.height = `${scrollHeight}px`;
-    }
-
-    const heightRatio = dimension.height / 1080;
-    if (canvasRef?.current) {
-      canvasRef.current.style.transform = `translate3d(-50%, -50%, 0) scale(${heightRatio})`;
-      canvasRef.current.getContext("2d")?.drawImage(canvasImages[0], 0, 0);
+      containerRef.current.style.height = `${totalScrollHeight}px`;
     }
   }
 
   let rafState = false;
   let rafId = 0;
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleScroll() {
-    scrollLoop();
+    playAnimation();
 
     // 비디오를 부드럽게
     if (!rafState) {
@@ -59,13 +45,9 @@ export default function ScrollSection({ id }: { id: number }) {
     }
   }
 
-  function scrollLoop() {
-    playAnimation();
-  }
-
   function playAnimation() {
-    const currentYOffset = scrollY;
-    const scrollRatio = scrollY / scrollHeight;
+    const currentYOffset = scrollY - prevHeight;
+    const scrollRatio = currentYOffset / totalScrollHeight;
 
     console.log("scrollRatio", scrollRatio);
 
@@ -77,7 +59,7 @@ export default function ScrollSection({ id }: { id: number }) {
             end: 1,
             part: { start: 0.1, end: 0.2 },
             currentYOffset,
-            scrollHeight,
+            scrollHeight: totalScrollHeight,
           }) + "";
 
         mainMessage1Ref.current.style.transform = `translate3d(0, ${calcScrollEffect(
@@ -86,7 +68,7 @@ export default function ScrollSection({ id }: { id: number }) {
             end: 0,
             part: { start: 0.1, end: 0.2 },
             currentYOffset,
-            scrollHeight,
+            scrollHeight: totalScrollHeight,
           }
         )}%, 0)`;
       }
@@ -98,7 +80,7 @@ export default function ScrollSection({ id }: { id: number }) {
             end: 0,
             part: { start: 0.25, end: 0.3 },
             currentYOffset,
-            scrollHeight,
+            scrollHeight: totalScrollHeight,
           }) + "";
 
         mainMessage1Ref.current.style.transform = `translate3d(0, ${calcScrollEffect(
@@ -107,7 +89,7 @@ export default function ScrollSection({ id }: { id: number }) {
             end: -20,
             part: { start: 0.25, end: 0.3 },
             currentYOffset,
-            scrollHeight,
+            scrollHeight: totalScrollHeight,
           }
         )}%, 0)`;
       }
@@ -120,7 +102,7 @@ export default function ScrollSection({ id }: { id: number }) {
               end: 1,
               part: { start: 0.3, end: 0.4 },
               currentYOffset,
-              scrollHeight,
+              scrollHeight: totalScrollHeight,
             }) + "";
 
           mainMessage2Ref.current.style.transform = `translate3d(0, ${calcScrollEffect(
@@ -129,7 +111,7 @@ export default function ScrollSection({ id }: { id: number }) {
               end: 0,
               part: { start: 0.3, end: 0.4 },
               currentYOffset,
-              scrollHeight,
+              scrollHeight: totalScrollHeight,
             }
           )}%, 0)`;
         }
@@ -141,7 +123,7 @@ export default function ScrollSection({ id }: { id: number }) {
               end: 0,
               part: { start: 0.45, end: 0.5 },
               currentYOffset,
-              scrollHeight,
+              scrollHeight: totalScrollHeight,
             }) + "";
 
           mainMessage2Ref.current.style.transform = `translate3d(0, ${calcScrollEffect(
@@ -150,7 +132,7 @@ export default function ScrollSection({ id }: { id: number }) {
               end: -20,
               part: { start: 0.45, end: 0.5 },
               currentYOffset,
-              scrollHeight,
+              scrollHeight: totalScrollHeight,
             }
           )}%, 0)`;
         }
@@ -163,19 +145,6 @@ export default function ScrollSection({ id }: { id: number }) {
   function loop() {
     delayedYOffset = delayedYOffset + (scrollY - delayedYOffset) * acc;
 
-    const sequence = Math.round(
-      calcScrollEffect({
-        start: 0,
-        end: totalImages - 1,
-        currentYOffset: scrollY,
-        scrollHeight,
-      })
-    );
-    if (canvasImages[sequence] && canvasRef?.current) {
-      canvasRef?.current
-        .getContext("2d")
-        ?.drawImage(canvasImages[sequence], 0, 0);
-    }
     rafId = requestAnimationFrame(loop);
 
     if (Math.abs(scrollY - delayedYOffset) < 1) {
@@ -185,21 +154,9 @@ export default function ScrollSection({ id }: { id: number }) {
   }
 
   return (
-    <section
-      className="scroll-section pt-[50vh] relative"
-      id={`scroll-section-${id}`}
-      ref={containerRef}
-    >
-      <h1 className="relative -top-[10vh] text-5xl text-center font-bold z-10">
-        HTM
-      </h1>
-      <h2 className="relative -top-[5vh] text-3xl text-center font-semibold z-10">
-        High Turbo Machinery
-      </h2>
-
+    <section className="pt-[50vh] relative" ref={containerRef}>
       <div className="fixed left-0 w-full top-0 h-full">
         <canvas
-          id={`video-canvas-${id}`}
           width="1920"
           height="1080"
           ref={canvasRef}
@@ -230,7 +187,7 @@ export default function ScrollSection({ id }: { id: number }) {
         </p>
       </article>
 
-      <article>
+      {/* <article>
         <h2>설계</h2>
         <p>
           펌프, 터빈, 압축기 로터에 대한 설계, 역설계 연구 역량을 기반으로 수준
@@ -256,12 +213,12 @@ export default function ScrollSection({ id }: { id: number }) {
           축계의 안정성을 확보하기 위한 회전체 동역학을 통해 안정성을 확보한
           설계를 구축합니다.
         </p>
-      </article>
+      </article> */}
     </section>
   );
 }
 
-const MainMessage = React.forwardRef(function MainMessage(
+const MainMessage = forwardRef(function MainMessage(
   { children }: { children: React.ReactNode },
   ref: ForwardedRef<HTMLDivElement>
 ) {

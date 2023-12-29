@@ -9,7 +9,7 @@ const Links = [
 
 export default function Header() {
   return (
-    <header className="w-full h-12 py-10 sticky top-0 left-0 z-10 backdrop-blur-lg saturate-100 bg-black">
+    <header className="w-full h-12 py-10 sticky top-0 left-0 z-20 backdrop-blur-lg saturate-100 bg-black">
       <nav className="max-w-[1000px] h-full flex items-center mx-auto">
         <a
           href="/"
