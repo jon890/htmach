@@ -15,7 +15,11 @@ const config: Config = {
       },
 
       backgroundColor: {
-        navColor: "rgba(255, 255, 255, 0.1)",
+        navColor: "rgba(0, 0, 0, 1)",
+      },
+
+      saturate: {
+        "180%": "180%",
       },
     },
   },

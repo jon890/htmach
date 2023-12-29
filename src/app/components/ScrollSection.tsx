@@ -52,8 +52,6 @@ export default function ScrollSection() {
     };
   }, [dimension.height, prevHeight, canvasRef, containerRef, handleScroll]);
 
-  let rafState = false;
-  let rafId = 0;
   // eslint-disable-next-line react-hooks/exhaustive-deps
   function handleScroll() {
     setScroll((prev) => ({
@@ -61,36 +59,22 @@ export default function ScrollSection() {
       height: scrollY - prevHeight,
       ratio: (scrollY - prevHeight) / totalScrollHeight,
     }));
-
-    // 비디오를 부드럽게
-    if (!rafState) {
-      rafId = requestAnimationFrame(loop);
-      rafState = true;
-    }
-  }
-
-  let acc = 0.1;
-  let delayedYOffset = 0;
-  function loop() {
-    delayedYOffset = delayedYOffset + (scrollY - delayedYOffset) * acc;
-
-    rafId = requestAnimationFrame(loop);
-
-    if (Math.abs(scrollY - delayedYOffset) < 1) {
-      cancelAnimationFrame(rafId);
-      rafState = false;
-    }
   }
 
   console.log(totalScrollHeight, scrollHeight, scrollRatio);
 
   return (
     <section
-      className="relative w-full pt-[50vh]"
+      className="relative w-full bg-gray-500 pt-[50vh]"
       style={{ height: totalScrollHeight }}
       ref={containerRef}
     >
-      <div className={classnames("fixed left-0 top-0 h-full w-full")}>
+      <div
+        className={classnames(
+          "fixed left-0 top-0 h-full w-full",
+          scrollHeight >= 0 ? "block" : "hidden",
+        )}
+      >
         <canvas
           className="absolute left-1/2 top-1/2"
           width="1000"
@@ -102,7 +86,7 @@ export default function ScrollSection() {
                   opacity: calcScrollEffect({
                     start: 0,
                     end: 0.5,
-                    part: { start: 0, end: 0.1 },
+                    part: { start: -0.25, end: 0.1 },
                     scrollHeight,
                     totalScrollHeight,
                   }),
@@ -251,7 +235,7 @@ const MainMessage = forwardRef(function MainMessage(
 ) {
   return (
     <div
-      className="h-12, fixed left-0 top-[35vh] flex w-full flex-col items-center justify-center text-3xl opacity-0"
+      className="h-12, fixed left-0 top-[35vh] flex w-full flex-col items-center justify-center text-3xl text-white opacity-0"
       ref={ref}
       style={style ?? {}}
     >
