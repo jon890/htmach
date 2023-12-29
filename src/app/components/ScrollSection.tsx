@@ -1,8 +1,8 @@
 "use client";
 
-import useWindowDimensions from "@/app/hooks/useWindow";
-import React, { ForwardedRef, RefObject, useEffect, useRef } from "react";
-import { calcScrollEffect } from "../lib/calc-scroll-effect";
+import useWindowDimensions from "@/hooks/useWindow";
+import { calcScrollEffect } from "@/lib/calc-scroll-effect";
+import React, { ForwardedRef, useEffect, useRef } from "react";
 
 export default function ScrollSection({ id }: { id: number }) {
   const { dimension } = useWindowDimensions();
@@ -219,6 +219,44 @@ export default function ScrollSection({ id }: { id: number }) {
           최선의 결과를 위해 노력합니다.
         </p>
       </MainMessage>
+
+      <h1>사업분야</h1>
+
+      <article>
+        <h2>재제조</h2>
+        <p>
+          펌프 One-Stop 재제조 서비스를 통한 로터에 대한 설계, 역설계 연구
+          역량을 보유하고 있습니다.
+        </p>
+      </article>
+
+      <article>
+        <h2>설계</h2>
+        <p>
+          펌프, 터빈, 압축기 로터에 대한 설계, 역설계 연구 역량을 기반으로 수준
+          높은 설계를 구현합니다.
+        </p>
+      </article>
+
+      <article>
+        <h2>유동해석</h2>
+        <p>전산유체역학(CFD)를 통해 로터의 효율, 성능을 예측합니다.</p>
+      </article>
+
+      <article>
+        <h2>구조해석</h2>
+        <p>
+          로터의 강건성을 확보하기 위한 구조해석(CAE) 역량을 보유하고 있습니다.
+        </p>
+      </article>
+
+      <article>
+        <h2>축계 해석</h2>
+        <p>
+          축계의 안정성을 확보하기 위한 회전체 동역학을 통해 안정성을 확보한
+          설계를 구축합니다.
+        </p>
+      </article>
     </section>
   );
 }

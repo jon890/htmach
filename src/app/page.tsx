@@ -1,12 +1,13 @@
-import Header from "@/app/components/Header";
-import Footer from "./components/Footer";
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+import ScrollSection from "@/components/ScrollSection";
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Header />
 
-      <section className="p-0 w-screen h-[calc(100vh-80px)] overflow-hidden top-[80px] flex justify-center items-center">
+      <section className="m-0 p-0 w-screen h-[calc(100vh-80px)] overflow-hidden top-[80px] flex justify-center items-center">
         <div className="absolute z-10 text-white max-w-[1000px] space-y-10">
           <h1 className="text-5xl font-bold">
             회전체 기기의 모든 것, HTM이 함께 합니다.
@@ -28,46 +29,7 @@ export default function Home() {
         />
       </section>
 
-      <section>
-        <h1>사업분야</h1>
-
-        <article>
-          <h2>재제조</h2>
-          <p>
-            펌프 One-Stop 재제조 서비스를 통한 로터에 대한 설계, 역설계 연구
-            역량을 보유하고 있습니다.
-          </p>
-        </article>
-
-        <article>
-          <h2>설계</h2>
-          <p>
-            펌프, 터빈, 압축기 로터에 대한 설계, 역설계 연구 역량을 기반으로
-            수준 높은 설계를 구현합니다.
-          </p>
-        </article>
-
-        <article>
-          <h2>유동해석</h2>
-          <p>전산유체역학(CFD)를 통해 로터의 효율, 성능을 예측합니다.</p>
-        </article>
-
-        <article>
-          <h2>구조해석</h2>
-          <p>
-            로터의 강건성을 확보하기 위한 구조해석(CAE) 역량을 보유하고
-            있습니다.
-          </p>
-        </article>
-
-        <article>
-          <h2>축계 해석</h2>
-          <p>
-            축계의 안정성을 확보하기 위한 회전체 동역학을 통해 안정성을 확보한
-            설계를 구축합니다.
-          </p>
-        </article>
-      </section>
+      <ScrollSection id={1} />
 
       <Footer />
     </main>

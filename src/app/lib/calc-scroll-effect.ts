@@ -23,6 +23,7 @@ export function calcScrollEffect({
     const partScrollHeight = partScrollEnd - partScrollStart;
 
     console.log(
+      "Caculate Scroll Effect Values",
       "partStart",
       partScrollStart,
       "partEnd",
