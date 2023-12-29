@@ -2,45 +2,47 @@ type CalcScrollEffectParams = {
   start: number;
   end: number;
   part?: { start: number; end: number };
-  currentYOffset: number;
   scrollHeight: number;
+  totalScrollHeight: number;
 };
 
 export function calcScrollEffect({
   start,
   end,
-  currentYOffset,
-  scrollHeight,
   part,
+  scrollHeight,
+  totalScrollHeight,
 }: CalcScrollEffectParams) {
-  const scrollRatio = currentYOffset / scrollHeight;
+  const scrollRatio = scrollHeight / totalScrollHeight;
 
   let rv;
 
   if (part) {
-    const partScrollStart = part.start * scrollHeight;
-    const partScrollEnd = part.end * scrollHeight;
+    const partScrollStart = part.start * totalScrollHeight;
+    const partScrollEnd = part.end * totalScrollHeight;
     const partScrollHeight = partScrollEnd - partScrollStart;
 
-    console.log(
-      "Caculate Scroll Effect Values",
-      "partStart",
-      partScrollStart,
-      "partEnd",
-      partScrollEnd,
-      "partScroll",
-      partScrollHeight,
-      "currentYOffset",
-      currentYOffset
-    );
+    // console.log(
+    //   "Caculate Scroll Effect Values",
+    //   "partStart",
+    //   partScrollStart,
+    //   "partEnd",
+    //   partScrollEnd,
+    //   "partScroll",
+    //   partScrollHeight,
+    //   "scrollHeight",
+    //   scrollHeight,
+    //   "totalScrollHeight",
+    //   totalScrollHeight
+    // );
 
-    if (currentYOffset >= partScrollStart && currentYOffset <= partScrollEnd) {
+    if (scrollHeight >= partScrollStart && scrollHeight <= partScrollEnd) {
       const partScrollRatio =
-        (currentYOffset - partScrollStart) / partScrollHeight;
+        (scrollHeight - partScrollStart) / partScrollHeight;
       rv = start + partScrollRatio * (end - start);
-    } else if (currentYOffset < partScrollStart) {
+    } else if (scrollHeight < partScrollStart) {
       rv = start;
-    } else if (currentYOffset > partScrollEnd) {
+    } else if (scrollHeight > partScrollEnd) {
       rv = end;
     } else {
       throw Error("Error");
