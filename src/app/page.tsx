@@ -7,8 +7,8 @@ export default function Home() {
     <main className="flex min-h-screen flex-col items-center justify-between">
       <Header />
 
-      <section className="top-[80px] m-0 flex h-[calc(100vh-80px)] w-full items-center justify-center overflow-hidden p-0">
-        <div className="relative top-0 z-10 max-w-[1000px] space-y-10 text-white">
+      <section className="top-[80px] h-[calc(100vh-80px)] w-full overflow-hidden">
+        <div className="absolute bottom-[10vh] z-10 w-full space-y-10 text-center text-white">
           <h1 className="text-5xl font-bold">
             회전체 기기의 모든 것, HTM이 함께 합니다.
           </h1>
@@ -25,7 +25,7 @@ export default function Home() {
           playsInline
           loop
           autoPlay
-          className="fixed left-0 h-[calc(100vh-80px)] w-full object-cover"
+          className="absolute h-[calc(100vh-80px)] w-full object-cover"
         />
       </section>
 
