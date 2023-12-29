@@ -131,9 +131,11 @@ export default function ScrollSection() {
                 }
         }
       >
-        <h1 className="text-center text-5xl font-bold">사업 분야 소개</h1>
+        <h1 className="text-center text-7xl font-bold text-white">
+          사업 분야 소개
+        </h1>
         <br />
-        <p className="text-center font-bold">재제조</p>
+        <p className="text-center text-5xl font-bold text-white">1. 재제조</p>
       </MainMessage>
 
       <MainMessage
@@ -179,7 +181,7 @@ export default function ScrollSection() {
                 }
         }
       >
-        <p className="max-w-screen-sm text-center font-semibold leading-10">
+        <p className="max-w-[1000px] text-center text-5xl font-semibold leading-relaxed text-white">
           펌프 One-Stop 재제조 서비스를 통한 <br />
           로터에 대한 설계, 역설계 연구 역량을 <br /> 보유하고 있습니다.
         </p>
@@ -222,7 +224,7 @@ const MainMessage = forwardRef(function MainMessage(
 ) {
   return (
     <div
-      className="h-12, fixed left-0 top-[35vh] flex w-full flex-col items-center justify-center text-3xl text-white opacity-0"
+      className="fixed left-0 top-[35vh] flex w-full flex-col items-center justify-center opacity-0"
       ref={ref}
       style={style ?? {}}
     >
