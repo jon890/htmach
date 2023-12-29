@@ -90,9 +90,9 @@ export default function ScrollSection() {
       style={{ height: totalScrollHeight }}
       ref={containerRef}
     >
-      <div className={classnames("top-0 h-full fixed left-0 w-full")}>
+      <div className={classnames("fixed left-0 top-0 h-full w-full")}>
         <canvas
-          className="absolute top-1/2 left-1/2"
+          className="absolute left-1/2 top-1/2"
           width="1000"
           height="1000"
           ref={canvasRef}
@@ -125,44 +125,44 @@ export default function ScrollSection() {
           scrollRatio <= 0
             ? {}
             : scrollRatio <= 0.22
-            ? {
-                opacity: calcScrollEffect({
-                  start: 0,
-                  end: 1,
-                  part: { start: 0.1, end: 0.2 },
-                  scrollHeight,
-                  totalScrollHeight,
-                }),
-                transform: `translate3d(0, ${calcScrollEffect({
-                  start: 20,
-                  end: 0,
-                  part: { start: 0.1, end: 0.2 },
-                  scrollHeight,
-                  totalScrollHeight,
-                })}%, 0)`,
-              }
-            : {
-                opacity: calcScrollEffect({
-                  start: 1,
-                  end: 0,
-                  part: { start: 0.25, end: 0.3 },
-                  scrollHeight,
+              ? {
+                  opacity: calcScrollEffect({
+                    start: 0,
+                    end: 1,
+                    part: { start: 0.1, end: 0.2 },
+                    scrollHeight,
+                    totalScrollHeight,
+                  }),
+                  transform: `translate3d(0, ${calcScrollEffect({
+                    start: 20,
+                    end: 0,
+                    part: { start: 0.1, end: 0.2 },
+                    scrollHeight,
+                    totalScrollHeight,
+                  })}%, 0)`,
+                }
+              : {
+                  opacity: calcScrollEffect({
+                    start: 1,
+                    end: 0,
+                    part: { start: 0.25, end: 0.3 },
+                    scrollHeight,
 
-                  totalScrollHeight,
-                }),
-                transform: `translate3d(0, ${calcScrollEffect({
-                  start: 0,
-                  end: -20,
-                  part: { start: 0.25, end: 0.3 },
-                  scrollHeight,
-                  totalScrollHeight,
-                })}%, 0)`,
-              }
+                    totalScrollHeight,
+                  }),
+                  transform: `translate3d(0, ${calcScrollEffect({
+                    start: 0,
+                    end: -20,
+                    part: { start: 0.25, end: 0.3 },
+                    scrollHeight,
+                    totalScrollHeight,
+                  })}%, 0)`,
+                }
         }
       >
-        <h1 className="font-bold text-center text-5xl">사업 분야 소개</h1>
+        <h1 className="text-center text-5xl font-bold">사업 분야 소개</h1>
         <br />
-        <p className="font-bold text-center">재제조</p>
+        <p className="text-center font-bold">재제조</p>
       </MainMessage>
 
       <MainMessage
@@ -170,45 +170,45 @@ export default function ScrollSection() {
           scrollRatio <= 0
             ? {}
             : scrollRatio <= 0.42
-            ? {
-                opacity:
-                  calcScrollEffect({
-                    start: 0,
-                    end: 1,
+              ? {
+                  opacity:
+                    calcScrollEffect({
+                      start: 0,
+                      end: 1,
+                      part: { start: 0.3, end: 0.4 },
+                      scrollHeight,
+                      totalScrollHeight,
+                    }) + "",
+
+                  transform: `translate3d(0, ${calcScrollEffect({
+                    start: 20,
+                    end: 0,
                     part: { start: 0.3, end: 0.4 },
                     scrollHeight,
                     totalScrollHeight,
-                  }) + "",
+                  })}%, 0)`,
+                }
+              : {
+                  opacity:
+                    calcScrollEffect({
+                      start: 1,
+                      end: 0,
+                      part: { start: 0.45, end: 0.5 },
+                      scrollHeight,
+                      totalScrollHeight,
+                    }) + "",
 
-                transform: `translate3d(0, ${calcScrollEffect({
-                  start: 20,
-                  end: 0,
-                  part: { start: 0.3, end: 0.4 },
-                  scrollHeight,
-                  totalScrollHeight,
-                })}%, 0)`,
-              }
-            : {
-                opacity:
-                  calcScrollEffect({
-                    start: 1,
-                    end: 0,
+                  transform: `translate3d(0, ${calcScrollEffect({
+                    start: 0,
+                    end: -20,
                     part: { start: 0.45, end: 0.5 },
                     scrollHeight,
                     totalScrollHeight,
-                  }) + "",
-
-                transform: `translate3d(0, ${calcScrollEffect({
-                  start: 0,
-                  end: -20,
-                  part: { start: 0.45, end: 0.5 },
-                  scrollHeight,
-                  totalScrollHeight,
-                })}%, 0)`,
-              }
+                  })}%, 0)`,
+                }
         }
       >
-        <p className="font-semibold text-center max-w-screen-sm leading-10">
+        <p className="max-w-screen-sm text-center font-semibold leading-10">
           펌프 One-Stop 재제조 서비스를 통한 <br />
           로터에 대한 설계, 역설계 연구 역량을 <br /> 보유하고 있습니다.
         </p>
@@ -247,11 +247,11 @@ export default function ScrollSection() {
 
 const MainMessage = forwardRef(function MainMessage(
   { children, style }: { children: React.ReactNode; style?: CSSProperties },
-  ref: ForwardedRef<HTMLDivElement>
+  ref: ForwardedRef<HTMLDivElement>,
 ) {
   return (
     <div
-      className="fixed left-0 w-full flex flex-col items-center justify-center top-[35vh] h-12, text-3xl opacity-0"
+      className="h-12, fixed left-0 top-[35vh] flex w-full flex-col items-center justify-center text-3xl opacity-0"
       ref={ref}
       style={style ?? {}}
     >

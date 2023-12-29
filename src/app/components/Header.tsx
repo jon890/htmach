@@ -9,11 +9,11 @@ const Links = [
 
 export default function Header() {
   return (
-    <header className="w-full h-12 py-10 sticky top-0 left-0 z-20 backdrop-blur-lg saturate-100 bg-black">
-      <nav className="max-w-[1000px] h-full flex items-center mx-auto">
+    <header className="sticky left-0 top-0 z-20 h-12 w-full bg-black py-10 saturate-100 backdrop-blur-lg">
+      <nav className="mx-auto flex h-full max-w-[1000px] items-center">
         <a
           href="/"
-          className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-pink-500 font-bold text-3xl mr-auto"
+          className="mr-auto bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-3xl font-bold text-transparent"
         >
           HTM
         </a>
@@ -27,7 +27,7 @@ export default function Header() {
 
 function NavLink({ text, href }: { text: string; href: string }) {
   return (
-    <a href={href} className="ml-4 text-white font-semibold">
+    <a href={href} className="ml-4 font-semibold text-white">
       {text}
     </a>
   );
