@@ -1,0 +1,146 @@
+import MainMessage from "@/components/main/MainMessage";
+import { calcScrollEffect } from "@/lib/calc-scroll-effect";
+import classnames from "@/lib/classnames";
+import Image from "next/image";
+
+export default function PumpEngineering({
+  scrollRatio,
+  scrollHeight,
+  totalScrollHeight,
+}: {
+  scrollRatio: number;
+  scrollHeight: number;
+  totalScrollHeight: number;
+}) {
+  return (
+    <>
+      <Image
+        src="/images/bg-pump-engineering.jpg"
+        alt="bg-business-overview"
+        height="1024"
+        width="1024"
+        className={classnames(
+          "fixed top-0 w-full object-cover",
+          false ? "h-[calc(100vh-192px)]" : "h-full",
+        )}
+        style={
+          scrollRatio <= 0.25
+            ? {
+                opacity: calcScrollEffect({
+                  startValue: 0,
+                  endValue: 0.5,
+                  partScroll: { start: 0.15, end: 0.25 },
+                  scrollHeight,
+                  totalScrollHeight,
+                }),
+              }
+            : {
+                opacity: calcScrollEffect({
+                  startValue: 0.5,
+                  endValue: 0,
+                  partScroll: { start: 0.35, end: 0.4 },
+                  scrollHeight,
+                  totalScrollHeight,
+                }),
+              }
+        }
+      />
+      <MainMessage
+        style={
+          scrollRatio <= 0
+            ? {}
+            : scrollRatio <= 0.25
+              ? {
+                  opacity: calcScrollEffect({
+                    startValue: 0,
+                    endValue: 1,
+                    partScroll: { start: 0.2, end: 0.25 },
+                    scrollHeight,
+                    totalScrollHeight,
+                  }),
+                  transform: `translate3d(0, ${calcScrollEffect({
+                    startValue: 20,
+                    endValue: 0,
+                    partScroll: { start: 0.2, end: 0.25 },
+                    scrollHeight,
+                    totalScrollHeight,
+                  })}%, 0)`,
+                }
+              : {
+                  opacity: calcScrollEffect({
+                    startValue: 1,
+                    endValue: 0,
+                    partScroll: { start: 0.25, end: 0.3 },
+                    scrollHeight,
+
+                    totalScrollHeight,
+                  }),
+                  transform: `translate3d(0, ${calcScrollEffect({
+                    startValue: 0,
+                    endValue: -20,
+                    partScroll: { start: 0.25, end: 0.3 },
+                    scrollHeight,
+                    totalScrollHeight,
+                  })}%, 0)`,
+                }
+        }
+      >
+        <h1 className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-7xl font-semibold leading-relaxed text-transparent">
+          2. 설계
+        </h1>
+      </MainMessage>
+
+      <MainMessage
+        style={
+          scrollRatio <= 0
+            ? {}
+            : scrollRatio <= 0.35
+              ? {
+                  opacity:
+                    calcScrollEffect({
+                      startValue: 0,
+                      endValue: 1,
+                      partScroll: { start: 0.3, end: 0.35 },
+                      scrollHeight,
+                      totalScrollHeight,
+                    }) + "",
+
+                  transform: `translate3d(0, ${calcScrollEffect({
+                    startValue: 20,
+                    endValue: 0,
+                    partScroll: { start: 0.3, end: 0.35 },
+                    scrollHeight,
+                    totalScrollHeight,
+                  })}%, 0)`,
+                }
+              : {
+                  opacity:
+                    calcScrollEffect({
+                      startValue: 1,
+                      endValue: 0,
+                      partScroll: { start: 0.35, end: 0.4 },
+                      scrollHeight,
+                      totalScrollHeight,
+                    }) + "",
+
+                  transform: `translate3d(0, ${calcScrollEffect({
+                    startValue: 0,
+                    endValue: -20,
+                    partScroll: { start: 0.35, end: 0.45 },
+                    scrollHeight,
+                    totalScrollHeight,
+                  })}%, 0)`,
+                }
+        }
+      >
+        <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
+          펌프, 터빈, 압축기 로터에 대한 설계,
+          <br />
+          역설계 연구 역량을 기반으로
+          <br />
+          수준높은 설계를 구현합니다.
+        </p>
+      </MainMessage>
+    </>
+  );
+}

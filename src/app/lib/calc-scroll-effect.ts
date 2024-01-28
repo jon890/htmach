@@ -1,15 +1,15 @@
 type CalcScrollEffectParams = {
-  start: number;
-  end: number;
-  part?: { start: number; end: number };
+  startValue: number;
+  endValue: number;
+  partScroll?: { start: number; end: number };
   scrollHeight: number;
   totalScrollHeight: number;
 };
 
 export function calcScrollEffect({
-  start,
-  end,
-  part,
+  startValue,
+  endValue,
+  partScroll,
   scrollHeight,
   totalScrollHeight,
 }: CalcScrollEffectParams) {
@@ -17,9 +17,9 @@ export function calcScrollEffect({
 
   let rv;
 
-  if (part) {
-    const partScrollStart = part.start * totalScrollHeight;
-    const partScrollEnd = part.end * totalScrollHeight;
+  if (partScroll) {
+    const partScrollStart = partScroll.start * totalScrollHeight;
+    const partScrollEnd = partScroll.end * totalScrollHeight;
     const partScrollHeight = partScrollEnd - partScrollStart;
 
     // console.log(
@@ -39,16 +39,16 @@ export function calcScrollEffect({
     if (scrollHeight >= partScrollStart && scrollHeight <= partScrollEnd) {
       const partScrollRatio =
         (scrollHeight - partScrollStart) / partScrollHeight;
-      rv = start + partScrollRatio * (end - start);
+      rv = startValue + partScrollRatio * (endValue - startValue);
     } else if (scrollHeight < partScrollStart) {
-      rv = start;
+      rv = startValue;
     } else if (scrollHeight > partScrollEnd) {
-      rv = end;
+      rv = endValue;
     } else {
       throw Error("Error");
     }
   } else {
-    rv = start + scrollRatio * (end - start);
+    rv = startValue + scrollRatio * (endValue - startValue);
   }
   return rv;
 }

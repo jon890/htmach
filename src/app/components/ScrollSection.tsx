@@ -1,17 +1,12 @@
 "use client";
 
+import ComputationalFluidDynamics from "@/components/main/ComputationalFluidDynamics";
+import PumpEngineering from "@/components/main/PumpEngineering";
+import Remanufacturing from "@/components/main/Remanufacturing";
 import useWindowDimensions from "@/hooks/useWindow";
-import { calcScrollEffect } from "@/lib/calc-scroll-effect";
-import classnames from "@/lib/classnames";
-import Image from "next/image";
-import {
-  CSSProperties,
-  ForwardedRef,
-  forwardRef,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { useEffect, useRef, useState } from "react";
+import StructuralAnalysis from "./main/StructuralAnalysis";
+import RotorDynamicsAnalysis from "./main/RotorDynamicsAnalysis";
 
 export default function ScrollSection() {
   const containerRef = useRef<HTMLElement>(null);
@@ -33,7 +28,7 @@ export default function ScrollSection() {
 
   // window.onLoad
   useEffect(() => {
-    setTotalScrollHeight(dimension.height * 4 - prevHeight);
+    setTotalScrollHeight(dimension.height * 10 - prevHeight);
 
     window.addEventListener("scroll", handleScroll);
 
@@ -51,7 +46,7 @@ export default function ScrollSection() {
     }));
   }
 
-  console.log(totalScrollHeight, scrollHeight, scrollRatio);
+  // console.log(totalScrollHeight, scrollHeight, scrollRatio);
 
   return (
     <section
@@ -59,178 +54,35 @@ export default function ScrollSection() {
       style={{ height: totalScrollHeight }}
       ref={containerRef}
     >
-      <Image
-        src="/images/bg-pump-remanufacturing.jpg"
-        alt="bg-business-overview"
-        height="1024"
-        width="1024"
-        className={classnames(
-          "fixed top-0 w-full object-cover",
-          scrollRatio > 0.7 ? "h-[calc(100vh-192px)]" : "h-full",
-        )}
-        style={
-          scrollRatio <= 0.5
-            ? {
-                opacity: calcScrollEffect({
-                  start: 0,
-                  end: 0.5,
-                  part: { start: -0.1, end: 0.1 },
-                  scrollHeight,
-                  totalScrollHeight,
-                }),
-              }
-            : {
-                opacity: calcScrollEffect({
-                  start: 0.5,
-                  end: 0,
-                  part: { start: 0.9, end: 1 },
-                  scrollHeight,
-                  totalScrollHeight,
-                }),
-              }
-        }
+      <Remanufacturing
+        scrollHeight={scrollHeight}
+        scrollRatio={scrollRatio}
+        totalScrollHeight={totalScrollHeight}
       />
 
-      <MainMessage
-        style={
-          scrollRatio <= 0
-            ? {}
-            : scrollRatio <= 0.22
-              ? {
-                  opacity: calcScrollEffect({
-                    start: 0,
-                    end: 1,
-                    part: { start: 0.1, end: 0.2 },
-                    scrollHeight,
-                    totalScrollHeight,
-                  }),
-                  transform: `translate3d(0, ${calcScrollEffect({
-                    start: 20,
-                    end: 0,
-                    part: { start: 0.1, end: 0.2 },
-                    scrollHeight,
-                    totalScrollHeight,
-                  })}%, 0)`,
-                }
-              : {
-                  opacity: calcScrollEffect({
-                    start: 1,
-                    end: 0,
-                    part: { start: 0.25, end: 0.3 },
-                    scrollHeight,
+      <PumpEngineering
+        scrollHeight={scrollHeight}
+        scrollRatio={scrollRatio}
+        totalScrollHeight={totalScrollHeight}
+      />
 
-                    totalScrollHeight,
-                  }),
-                  transform: `translate3d(0, ${calcScrollEffect({
-                    start: 0,
-                    end: -20,
-                    part: { start: 0.25, end: 0.3 },
-                    scrollHeight,
-                    totalScrollHeight,
-                  })}%, 0)`,
-                }
-        }
-      >
-        <h1 className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-7xl font-semibold leading-relaxed text-transparent">
-          사업 분야 소개
-        </h1>
-        <br />
-        <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
-          1. 재제조
-        </p>
-      </MainMessage>
+      <ComputationalFluidDynamics
+        scrollHeight={scrollHeight}
+        scrollRatio={scrollRatio}
+        totalScrollHeight={totalScrollHeight}
+      />
 
-      <MainMessage
-        style={
-          scrollRatio <= 0
-            ? {}
-            : scrollRatio <= 0.42
-              ? {
-                  opacity:
-                    calcScrollEffect({
-                      start: 0,
-                      end: 1,
-                      part: { start: 0.3, end: 0.4 },
-                      scrollHeight,
-                      totalScrollHeight,
-                    }) + "",
+      <StructuralAnalysis
+        scrollHeight={scrollHeight}
+        scrollRatio={scrollRatio}
+        totalScrollHeight={totalScrollHeight}
+      />
 
-                  transform: `translate3d(0, ${calcScrollEffect({
-                    start: 20,
-                    end: 0,
-                    part: { start: 0.3, end: 0.4 },
-                    scrollHeight,
-                    totalScrollHeight,
-                  })}%, 0)`,
-                }
-              : {
-                  opacity:
-                    calcScrollEffect({
-                      start: 1,
-                      end: 0,
-                      part: { start: 0.45, end: 0.5 },
-                      scrollHeight,
-                      totalScrollHeight,
-                    }) + "",
-
-                  transform: `translate3d(0, ${calcScrollEffect({
-                    start: 0,
-                    end: -20,
-                    part: { start: 0.45, end: 0.5 },
-                    scrollHeight,
-                    totalScrollHeight,
-                  })}%, 0)`,
-                }
-        }
-      >
-        <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
-          펌프 One-Stop 재제조 서비스를 통한 <br />
-          로터에 대한 설계, 역설계 연구 역량을 <br /> 보유하고 있습니다.
-        </p>
-      </MainMessage>
-
-      {/* <article>
-        <h2>설계</h2>
-        <p>
-          펌프, 터빈, 압축기 로터에 대한 설계, 역설계 연구 역량을 기반으로 수준
-          높은 설계를 구현합니다.
-        </p>
-      </article>
-
-      <article>
-        <h2>유동해석</h2>
-        <p>전산유체역학(CFD)를 통해 로터의 효율, 성능을 예측합니다.</p>
-      </article>
-
-      <article>
-        <h2>구조해석</h2>
-        <p>
-          로터의 강건성을 확보하기 위한 구조해석(CAE) 역량을 보유하고 있습니다.
-        </p>
-      </article>
-
-      <article>
-        <h2>축계 해석</h2>
-        <p>
-          축계의 안정성을 확보하기 위한 회전체 동역학을 통해 안정성을 확보한
-          설계를 구축합니다.
-        </p>
-      </article> */}
+      <RotorDynamicsAnalysis
+        scrollHeight={scrollHeight}
+        scrollRatio={scrollRatio}
+        totalScrollHeight={totalScrollHeight}
+      />
     </section>
   );
 }
-
-const MainMessage = forwardRef(function MainMessage(
-  { children, style }: { children: React.ReactNode; style?: CSSProperties },
-  ref: ForwardedRef<HTMLDivElement>,
-) {
-  return (
-    <div
-      className="fixed left-0 top-[35vh] flex w-full flex-col items-center justify-center opacity-0"
-      ref={ref}
-      style={style ?? {}}
-    >
-      {children}
-    </div>
-  );
-});
