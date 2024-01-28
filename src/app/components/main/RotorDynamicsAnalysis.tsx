@@ -15,7 +15,7 @@ export default function RotorDynamicsAnalysis({
   return (
     <>
       <Image
-        src="/images/bg-pump-engineering.jpg"
+        src="/images/bg-rotor-dynamics-analysis.jpg"
         alt="bg-business-overview"
         height="1024"
         width="1024"

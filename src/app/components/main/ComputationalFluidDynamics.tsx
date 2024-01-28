@@ -15,7 +15,7 @@ export default function ComputationalFluidDynamics({
   return (
     <>
       <Image
-        src="/images/bg-pump-engineering.jpg"
+        src="/images/bg-computational-fluid-dynamics.jpg"
         alt="bg-business-overview"
         height="1024"
         width="1024"
