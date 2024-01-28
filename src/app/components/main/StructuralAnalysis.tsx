@@ -15,7 +15,7 @@ export default function StructuralAnalysis({
   return (
     <>
       <Image
-        src="/images/bg-computational-fluid-dynamics.jpg"
+        src="/images/bg-people-computational-fluid-dynamics.jpg"
         alt="bg-business-overview"
         height="1024"
         width="1024"
