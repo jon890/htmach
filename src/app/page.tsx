@@ -4,9 +4,7 @@ import ScrollSection from "@/components/ScrollSection";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between">
-      <Header />
-
+    <>
       <section className="top-[80px] h-[calc(100vh-80px)] w-full overflow-hidden">
         <div className="absolute bottom-[10vh] z-10 w-full space-y-10 text-center text-white">
           <h1 className="text-5xl font-bold">
@@ -30,8 +28,6 @@ export default function Home() {
       </section>
 
       <ScrollSection />
-
-      <Footer />
-    </main>
+    </>
   );
 }
