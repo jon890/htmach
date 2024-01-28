@@ -1,10 +1,12 @@
+import NavLink from "./NavLink";
+
 const Links = [
-  "MADYN",
-  "기업소개",
-  "사업분야",
-  "기술현황",
-  "실적/사례",
-  "고객센터",
+  { title: "MADYN", link: "madyn" },
+  { title: "기업소개", link: "#" },
+  { title: "사업분야", link: "#" },
+  { title: "기술현황", link: "#" },
+  { title: "실적/사례", link: "#" },
+  { title: "고객센터", link: "#" },
 ];
 
 export default function Header() {
@@ -17,18 +19,10 @@ export default function Header() {
         >
           HTM
         </a>
-        {Links.map((link) => (
-          <NavLink text={link} href="#" key={link} />
+        {Links.map(({ title, link }) => (
+          <NavLink text={title} href={link} key={link} />
         ))}
       </nav>
     </header>
-  );
-}
-
-function NavLink({ text, href }: { text: string; href: string }) {
-  return (
-    <a href={href} className="ml-4 font-semibold text-white">
-      {text}
-    </a>
   );
 }
