@@ -4,7 +4,7 @@ import MadynClients from "./MadynClients";
 
 export default function MadynPage() {
   return (
-    <section className="flex min-h-screen w-full flex-col items-center justify-center bg-black pt-16 text-white">
+    <section className="flex min-h-screen w-full flex-col items-center justify-center bg-black px-10 pt-16 text-white">
       <InViewHelper
         anyClass="transition duration-1000 opacity-0"
         inClass="opacity-100"
@@ -230,28 +230,58 @@ export default function MadynPage() {
         </div>
       </article>
 
-      <article className="flex max-w-[1000px] flex-row">
-        <h2>특별한 모델링 기능</h2>
-        <ul>
-          <li>Keyword1</li>
-          <li>Keyword2</li>
-          <li>Keyword3</li>
-          <li>Keyword4</li>
-          <li>Keyword5</li>
-          <li>Keyword6</li>
-        </ul>
+      <article className="flex max-w-[1300px] flex-row items-center gap-10 py-48">
+        <InViewHelper
+          anyClass="transition duration-1000 opacity-0"
+          inClass="opacity-100"
+          outClass="translate-y-[1rem]"
+        >
+          <h2 className="min-w-[250px] text-3xl font-semibold">
+            특별한 모델링 기능
+          </h2>
+        </InViewHelper>
+
+        <InViewHelper
+          anyClass="transition duration-1000 opacity-0"
+          inClass="opacity-100"
+          outClass="translate-y-[1rem]"
+        >
+          <ul className="grid list-none grid-cols-3 gap-10 *:bg-gradient-to-r *:from-indigo-500 *:to-pink-500 *:bg-clip-text *:text-3xl *:font-bold *:text-transparent">
+            <li>MADYDN 2000</li>
+            <li>Rotordynamic program</li>
+            <li>Magnetic bearings</li>
+            <li>Lateral, torsional, and axial vibrations</li>
+            <li>Fluid film bearings</li>
+            <li>Couplings and stability analysis</li>
+          </ul>
+        </InViewHelper>
       </article>
 
-      <article className="flex max-w-[1000px] flex-row">
-        <h2>강력한 분석 기능</h2>
-        <ul>
-          <li>Keyword1</li>
-          <li>Keyword2</li>
-          <li>Keyword3</li>
-          <li>Keyword4</li>
-          <li>Keyword5</li>
-          <li>Keyword6</li>
-        </ul>
+      <article className="flex max-w-[1300px] flex-row items-center gap-10 py-48">
+        <InViewHelper
+          anyClass="transition duration-1000 opacity-0"
+          inClass="opacity-100"
+          outClass="translate-y-[1rem]"
+        >
+          <h2 className="min-w-[250px] text-3xl font-semibold">
+            강력한 분석 기능
+          </h2>
+        </InViewHelper>
+
+        <InViewHelper
+          anyClass="transition duration-1000 opacity-0"
+          inClass="opacity-100"
+          outClass="translate-y-[1rem]"
+        >
+          <ul className="grid list-none grid-cols-3 gap-10 *:bg-gradient-to-r *:from-indigo-500 *:to-pink-500 *:bg-clip-text *:text-3xl *:font-bold *:text-transparent">
+            <li>MADYDN 2000</li>
+            <li>Rotordynamic program</li>
+            <li>Magnetic bearings</li>
+            <li>Lateral, torsional, and axial vibrations</li>
+            <li>Fluid film bearings</li>
+            <li>Couplings and stability analysis</li>
+          </ul>
+        </InViewHelper>
       </article>
 
       <article className="flex max-w-[1000px] flex-col items-center justify-center space-y-5">
