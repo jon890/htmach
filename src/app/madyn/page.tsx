@@ -1,15 +1,21 @@
+import InViewHelper from "@/components/InViewHelper";
 import Image from "next/image";
 import MadynClients from "./MadynClients";
 
 export default function MadynPage() {
   return (
     <section className="flex min-h-screen w-full flex-col items-center justify-center space-y-10 bg-black text-white">
-      <Image
-        src="/images/logo/delta-js-logo.gif"
-        width="306"
-        height="89"
-        alt="delta-js-logo"
-      />
+      <InViewHelper
+        inClass="opacity-100 transition duration-1000"
+        outClass="translate-x[-8rem]"
+      >
+        <Image
+          src="/images/logo/delta-js-logo.gif"
+          width="306"
+          height="89"
+          alt="delta-js-logo"
+        />
+      </InViewHelper>
 
       <article className="flex max-w-[1000px] flex-col">
         <h1>MADYN 2000</h1>

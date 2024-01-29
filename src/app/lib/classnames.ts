@@ -1,3 +1,3 @@
-export default function classnames(...cls: string[]) {
-  return cls.filter((c) => c !== "").join(" ");
+export default function classnames(...cls: (string | undefined)[]) {
+  return cls.filter((c) => c && c !== "").join(" ");
 }
