@@ -1,10 +1,7 @@
 import ScrollSection from "@/components/ScrollSection";
 import { useTranslations } from "next-intl";
-import { unstable_setRequestLocale } from "next-intl/server";
 
-export default function Home({ locale }: { locale: string }) {
-  unstable_setRequestLocale(locale);
-
+export default function Home() {
   const t = useTranslations("Home");
 
   return (

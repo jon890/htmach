@@ -1,6 +1,5 @@
 import NavLink from "@/components/NavLink";
 import { useTranslations } from "next-intl";
-import { unstable_setRequestLocale } from "next-intl/server";
 import { Link } from "../navigation";
 import LanguageSelect from "./LanguageSelect";
 
@@ -13,9 +12,7 @@ const Links = [
   { langKey: "help", link: "#" },
 ];
 
-export default function Header({ locale }: { locale: string }) {
-  unstable_setRequestLocale(locale);
-
+export default function Header() {
   const t = useTranslations();
 
   return (

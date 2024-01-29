@@ -6,7 +6,6 @@ import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { locales } from "../../navigation";
-import { unstable_setRequestLocale } from "next-intl/server";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -25,8 +24,6 @@ export default function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
-  unstable_setRequestLocale(locale);
-
   return (
     <html lang={locale}>
       <body
@@ -36,15 +33,11 @@ export default function LocaleLayout({
         )}
       >
         <main className="flex flex-col items-center justify-between">
-          <Header locale={locale} />
+          <Header />
           {children}
-          <Footer locale={locale} />
+          <Footer />
         </main>
       </body>
     </html>
   );
-}
-
-export function generateStaticParams() {
-  return locales.map((locale) => ({ locale }));
 }
