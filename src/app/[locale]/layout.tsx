@@ -1,9 +1,12 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import { cn } from "@/lib/utils";
 import "@/styles/glide.core.min.css";
 import "@/styles/globals.css";
-import type { Metadata } from "next";
+import { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+import { locales } from "../../navigation";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -22,10 +25,17 @@ export default function LocaleLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  unstable_setRequestLocale(locale);
+
   return (
     <html lang={locale}>
-      <body className="bg-background min-h-screen font-sans antialiased">
-        <main className="flex min-h-screen flex-col items-center justify-between">
+      <body
+        className={cn(
+          "bg-background min-h-screen font-sans antialiased",
+          fontSans.variable,
+        )}
+      >
+        <main className="flex flex-col items-center justify-between">
           <Header />
           {children}
           <Footer />
@@ -33,4 +43,8 @@ export default function LocaleLayout({
       </body>
     </html>
   );
+}
+
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
 }
