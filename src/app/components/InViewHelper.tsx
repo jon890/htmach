@@ -1,6 +1,7 @@
 "use client";
 
 import classnames from "@/lib/classnames";
+import { ReactNode } from "react";
 import { InView } from "react-intersection-observer";
 
 export default function InViewHelper({
@@ -9,7 +10,7 @@ export default function InViewHelper({
   inClass,
   outClass,
 }: {
-  children: React.ReactNode;
+  children: ReactNode;
   anyClass?: string;
   inClass?: string;
   outClass?: string;
