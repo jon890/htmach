@@ -36,9 +36,9 @@ export default function LocaleLayout({
         )}
       >
         <main className="flex flex-col items-center justify-between">
-          <Header />
+          <Header locale={locale} />
           {children}
-          <Footer />
+          <Footer locale={locale} />
         </main>
       </body>
     </html>
