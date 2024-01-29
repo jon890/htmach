@@ -4,7 +4,7 @@ import MadynClients from "./MadynClients";
 
 export default function MadynPage() {
   return (
-    <section className="flex min-h-screen w-full flex-col items-center justify-center space-y-20 bg-black text-white">
+    <section className="flex min-h-screen w-full flex-col items-center justify-center bg-black pt-16 text-white">
       <InViewHelper
         anyClass="transition duration-1000 opacity-0"
         inClass="opacity-100"
@@ -18,14 +18,14 @@ export default function MadynPage() {
         />
       </InViewHelper>
 
-      <article className="flex max-w-[1000px] flex-row justify-start gap-4">
-        <div className="flex flex-1 flex-col gap-8">
+      <article className="flex max-w-[1300px] flex-row justify-center gap-4 py-32">
+        <div className="flex w-2/3 flex-col gap-10">
           <InViewHelper
             anyClass="transition duration-1000 opacity-0"
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
-            <h1 className="text-5xl font-bold">MADYN 2000</h1>
+            <h1 className="text-7xl font-bold">MADYN 2000</h1>
           </InViewHelper>
 
           <InViewHelper
@@ -33,7 +33,7 @@ export default function MadynPage() {
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
-            <h2 className="text-3xl font-semibold">
+            <h2 className="text-5xl font-semibold">
               로터 다이나믹스 해석 소프트웨어
             </h2>
           </InViewHelper>
@@ -43,7 +43,7 @@ export default function MadynPage() {
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
-            <p className="text-lg font-medium leading-8">
+            <p className="text-xl font-medium leading-8">
               MADYN 2000은 터보기계의 로터 다이나믹스 해석을 위한 최고의
               솔루션을 제공합니다. MADYN 2000을 사용하면 정확하고 강건한 설계
               검토를 통해 기계의 원활한 작동과 긴 수명을 보장할 수 있습니다.
@@ -78,14 +78,15 @@ export default function MadynPage() {
           </InViewHelper>
         </div>
 
-        <div className="flex-1">
+        <div className="flex flex-1 items-center justify-center">
           <InViewHelper
-            anyClass="transition duration-1000 opacity-0"
+            anyClass="transition duration-1000 opacity-0 w-full"
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
             <Image
-              src="/images/bg-computational-fluid-dynamics-program.jpeg"
+              className="w-full object-cover"
+              src="/images/img-madyn1.png"
               width="500"
               height="500"
               alt="bg-cfd-program"
@@ -94,15 +95,16 @@ export default function MadynPage() {
         </div>
       </article>
 
-      <article className="flex max-w-[1000px] flex-row justify-start gap-6">
-        <div className="flex-1">
+      <article className="flex max-w-[1300px] flex-row justify-start gap-6 py-48">
+        <div className="flex flex-1 items-center justify-center">
           <InViewHelper
-            anyClass="transition duration-1000 opacity-0"
+            anyClass="transition duration-1000 opacity-0 w-full"
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
             <Image
-              src="/images/bg-computational-fluid-dynamics-program2.jpeg"
+              className="w-full object-cover"
+              src="/images/img-madyn2.jpeg"
               width="500"
               height="500"
               alt="bg-cfd-program"
@@ -110,13 +112,13 @@ export default function MadynPage() {
           </InViewHelper>
         </div>
 
-        <div className="flex flex-1 flex-col gap-8">
+        <div className="flex w-2/3 flex-col gap-8">
           <InViewHelper
             anyClass="transition duration-1000 opacity-0"
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
-            <h2 className="text-3xl font-semibold">
+            <h2 className="text-5xl font-semibold">
               광범위한 산업 경험과 노하우
             </h2>
           </InViewHelper>
@@ -126,7 +128,7 @@ export default function MadynPage() {
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
-            <p className="text-lg font-medium leading-8">
+            <p className="text-xl font-medium leading-8">
               MADYN은 독일의 다름슈타트 기술대학에서 시작된 연구를 기반으로 한
               델타의 로터 다이나믹스 전문 해석 소프트웨어입니다. 1970년부터
               이어진 20년 이상의 연구 노하우를 바탕으로 개발된 MADYN은 로터
@@ -144,7 +146,7 @@ export default function MadynPage() {
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
-            <ul className="*:text-md space-y-4 *:flex *:flex-row *:space-x-2">
+            <ul className="space-y-4 *:flex *:flex-row *:space-x-2 *:text-lg">
               <li>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"

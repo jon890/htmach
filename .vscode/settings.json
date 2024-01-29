@@ -4,6 +4,7 @@
     "className",
     "ngClass",
     "inClass",
-    "outClass"
+    "outClass",
+    "anyClass"
   ]
 }
