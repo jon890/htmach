@@ -1,6 +1,6 @@
 "use client";
 
-import { Link } from "../../navigation";
+import { Link } from "../navigation";
 
 export default function NavLink({
   text,
@@ -14,7 +14,7 @@ export default function NavLink({
   return (
     <Link
       href={href}
-      className="ml-4 font-semibold text-white"
+      className="ml-4 font-semibold"
       onClick={() => {
         if (href === "#" && preparingMessage) {
           alert(preparingMessage);

@@ -1,11 +1,14 @@
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter as FontSans } from "next/font/google";
 import "../glide.core.min.css";
 import "../globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+export const fontSans = FontSans({
+  subsets: ["latin"],
+  variable: "--font-sans",
+});
 
 export const metadata: Metadata = {
   title: "HTMACH",
@@ -20,7 +23,7 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang={locale}>
-      <body className={inter.className}>
+      <body className="bg-background min-h-screen font-sans antialiased">
         <main className="flex min-h-screen flex-col items-center justify-between">
           <Header />
           {children}

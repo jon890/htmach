@@ -1,12 +1,12 @@
 "use client";
 
-import ComputationalFluidDynamics from "@/components/main/ComputationalFluidDynamics";
-import PumpEngineering from "@/components/main/PumpEngineering";
-import Remanufacturing from "@/components/main/Remanufacturing";
 import useWindowDimensions from "@/hooks/useWindow";
 import { useEffect, useRef, useState } from "react";
-import StructuralAnalysis from "./main/StructuralAnalysis";
+import ComputationalFluidDynamics from "./main/ComputationalFluidDynamics";
+import PumpEngineering from "./main/PumpEngineering";
+import Remanufacturing from "./main/Remanufacturing";
 import RotorDynamicsAnalysis from "./main/RotorDynamicsAnalysis";
+import StructuralAnalysis from "./main/StructuralAnalysis";
 
 export default function ScrollSection() {
   const containerRef = useRef<HTMLElement>(null);

@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import NavLink from "./NavLink";
+import NavLink from "@/components/NavLink";
 
 const Links = [
   { langKey: "madyn", link: "/madyn" },
