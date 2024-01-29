@@ -1,1 +1,21 @@
-{}
+{
+  "Home": {
+    "title": "회전체 기기의 모든 것, HTM이 함께 합니다.",
+    "subTitle": "회전체 기기의 재제조 업무를 기반으로 고객의 요구에 부합할 수 있는 최선의 결과를 위해 노력합니다."
+  },
+  "Footer": {
+    "address": "부산광역시 금정구 부산대학로63번길 2 (장전동) 제 1공학관 HTM",
+    "email": "junho@htmach.co.kr"
+  },
+  "Common": {
+    "preparing": "준비 중 입니다"
+  },
+  "Menu": {
+    "madyn": "MADYN",
+    "company-introduce": "기업소개",
+    "business-area": "사업분야",
+    "technilogy-status": "기술현황",
+    "performance-cases": "실적/사례",
+    "help": "고객센터"
+  }
+}

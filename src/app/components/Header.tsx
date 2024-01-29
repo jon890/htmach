@@ -1,15 +1,18 @@
+import { useTranslations } from "next-intl";
 import NavLink from "./NavLink";
 
 const Links = [
-  { title: "MADYN", link: "/madyn" },
-  { title: "기업소개", link: "#" },
-  { title: "사업분야", link: "#" },
-  { title: "기술현황", link: "#" },
-  { title: "실적/사례", link: "#" },
-  { title: "고객센터", link: "#" },
+  { langKey: "madyn", link: "/madyn" },
+  { langKey: "company-introduce", link: "#" },
+  { langKey: "business-area", link: "#" },
+  { langKey: "technilogy-status", link: "#" },
+  { langKey: "performance-cases", link: "#" },
+  { langKey: "help", link: "#" },
 ];
 
 export default function Header() {
+  const t = useTranslations();
+
   return (
     <header className="sticky left-0 top-0 z-20 h-12 w-full bg-navColor py-10">
       <nav className="mx-auto flex h-full max-w-[1000px] items-center">
@@ -19,8 +22,8 @@ export default function Header() {
         >
           HTM
         </a>
-        {Links.map(({ title, link }) => (
-          <NavLink text={title} href={link} key={link} />
+        {Links.map(({ langKey, link }) => (
+          <NavLink text={t(`Menu.${langKey}`)} href={link} key={langKey} />
         ))}
       </nav>
     </header>

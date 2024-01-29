@@ -1,1 +1,21 @@
-{}
+{
+  "Home": {
+    "title": "Everything about rotating machinery, accompanied by HTM.",
+    "subTitle": "We strive to deliver the best results that meet customer demands based on our expertise in the remanufacturing of rotating machinery."
+  },
+  "Footer": {
+    "address": "1st Engineering Building HTM, 2 Busandaehak-ro 63beon-gil, Geumjeong-gu, Busan, Republic of Korea",
+    "email": "junho@htmach.co.kr"
+  },
+  "Common": {
+    "preparing": "Preparing"
+  },
+  "Menu": {
+    "madyn": "MADYN",
+    "company-introduce": "Company Introduction",
+    "business-area": "Business Areas",
+    "technilogy-status": "Technology Status",
+    "performance-cases": "Performance/Cases",
+    "help": "Customer Service"
+  }
+}
