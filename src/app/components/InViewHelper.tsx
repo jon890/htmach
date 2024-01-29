@@ -1,20 +1,26 @@
 "use client";
 
+import classnames from "@/lib/classnames";
 import { InView } from "react-intersection-observer";
 
 export default function InViewHelper({
   children,
+  anyClass,
   inClass,
   outClass,
 }: {
   children: React.ReactNode;
+  anyClass?: string;
   inClass?: string;
   outClass?: string;
 }) {
   return (
-    <InView triggerOnce threshold={1}>
+    <InView triggerOnce={false} threshold={1}>
       {({ inView, ref, entry }) => (
-        <div ref={ref} className={inView ? inClass : outClass}>
+        <div
+          ref={ref}
+          className={classnames(anyClass, inView ? inClass : outClass)}
+        >
           {children}
         </div>
       )}

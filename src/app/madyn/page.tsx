@@ -4,10 +4,11 @@ import MadynClients from "./MadynClients";
 
 export default function MadynPage() {
   return (
-    <section className="flex min-h-screen w-full flex-col items-center justify-center space-y-10 bg-black text-white">
+    <section className="flex min-h-screen w-full flex-col items-center justify-center space-y-20 bg-black text-white">
       <InViewHelper
-        inClass="opacity-100 transition duration-1000"
-        outClass="translate-x[-8rem]"
+        anyClass="transition duration-1000 opacity-0"
+        inClass="opacity-100"
+        outClass="translate-y-[1rem]"
       >
         <Image
           src="/images/logo/delta-js-logo.gif"
@@ -17,35 +18,59 @@ export default function MadynPage() {
         />
       </InViewHelper>
 
-      <article className="flex max-w-[1000px] flex-col">
-        <h1>MADYN 2000</h1>
-        <h2>로터 다니아믹스 해석 소프트웨어</h2>
-        <p>
-          MADYN 2000은 터보기계의 로터 다이나믹스 해석을 위한 최고의 솔루션을
-          제공합니다. MADYN 2000을 사용하면 정확하고 강건한 설계 검토를 통해
-          기계의 원활한 작동과 긴 수명을 보장할 수 있습니다. 소형 자동차의
-          터보차저부터 몇 백 메가와트에서 수천 메가와트까지의 전력을 생산하는
-          대형 샤프트 트레인까지, MADYN 2000은 광범위한 산업 분야에서
-          사용됩니다. MADYN 2000을 경험해 보세요
-        </p>
-
-        <button className="flex flex-row space-x-1">
-          문의하기
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="h-6 w-6"
+      <article className="flex max-w-[1000px] items-start">
+        <div className="flex w-1/2 flex-col space-y-8">
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"
-            />
-          </svg>
-        </button>
+            <h1 className="text-5xl font-bold">MADYN 2000</h1>
+          </InViewHelper>
+
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <h2 className="text-3xl font-semibold">
+              로터 다이나믹스 해석 소프트웨어
+            </h2>
+          </InViewHelper>
+
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <p className="text-lg font-medium">
+              MADYN 2000은 터보기계의 로터 다이나믹스 해석을 위한 최고의
+              솔루션을 제공합니다. MADYN 2000을 사용하면 정확하고 강건한 설계
+              검토를 통해 기계의 원활한 작동과 긴 수명을 보장할 수 있습니다.
+              소형 자동차의 터보차저부터 몇 백 메가와트에서 수천 메가와트까지의
+              전력을 생산하는 대형 샤프트 트레인까지, MADYN 2000은 광범위한 산업
+              분야에서 사용됩니다. MADYN 2000을 경험해 보세요
+            </p>
+          </InViewHelper>
+
+          <button className="flex w-full flex-row items-center justify-start space-x-1 rounded-md bg-blue-500 px-4 py-4 text-lg font-medium">
+            <span>문의하기</span>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={1.5}
+              stroke="currentColor"
+              className="h-6 w-6"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M8.625 12a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 0 1-2.555-.337A5.972 5.972 0 0 1 5.41 20.97a5.969 5.969 0 0 1-.474-.065 4.48 4.48 0 0 0 .978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25Z"
+              />
+            </svg>
+          </button>
+        </div>
       </article>
 
       <article className="flex max-w-[1000px] flex-col">
