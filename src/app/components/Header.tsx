@@ -1,7 +1,7 @@
 import NavLink from "./NavLink";
 
 const Links = [
-  { title: "MADYN", link: "madyn" },
+  { title: "MADYN", link: "/madyn" },
   { title: "기업소개", link: "#" },
   { title: "사업분야", link: "#" },
   { title: "기술현황", link: "#" },

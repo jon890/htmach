@@ -1,5 +1,7 @@
 "use client";
 
+import { Link } from "../../navigation";
+
 export default function NavLink({
   text,
   href,
@@ -8,7 +10,7 @@ export default function NavLink({
   href: string;
 }) {
   return (
-    <a
+    <Link
       href={href}
       className="ml-4 font-semibold text-white"
       onClick={() => {
@@ -18,6 +20,6 @@ export default function NavLink({
       }}
     >
       {text}
-    </a>
+    </Link>
   );
 }

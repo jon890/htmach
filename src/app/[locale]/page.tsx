@@ -1,5 +1,3 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import ScrollSection from "@/components/ScrollSection";
 
 export default function Home() {
