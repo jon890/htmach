@@ -21,7 +21,7 @@ export default function MadynClients() {
   return (
     <div className="glide">
       <div className="glide__track" data-glide-el="track">
-        <ul className="glide__slides flex flex-row items-center justify-center space-x-10">
+        <ul className="glide__slides flex flex-row items-center justify-center gap-10 *:flex-1 *:object-cover">
           <Image
             src="/images/logo/abb-logo.png"
             className="glide__slide"
