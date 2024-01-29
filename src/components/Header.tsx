@@ -1,6 +1,8 @@
 import NavLink from "@/components/NavLink";
 import { useTranslations } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
+import { Link } from "../navigation";
+import LanguageSelect from "./LanguageSelect";
 
 const Links = [
   { langKey: "madyn", link: "/madyn" },
@@ -19,15 +21,17 @@ export default function Header({ locale }: { locale: string }) {
   return (
     <header className="sticky left-0 top-0 z-20 h-12 w-full bg-navColor py-10">
       <nav className="mx-auto flex h-full max-w-[1000px] items-center">
-        <a
+        <Link
           href="/"
           className="mr-auto bg-gradient-to-r from-indigo-500 to-pink-500 bg-clip-text text-3xl font-bold text-transparent"
         >
           HTM
-        </a>
+        </Link>
         {Links.map(({ langKey, link }) => (
           <NavLink text={t(`Menu.${langKey}`)} href={link} key={langKey} />
         ))}
+
+        <LanguageSelect />
       </nav>
     </header>
   );
