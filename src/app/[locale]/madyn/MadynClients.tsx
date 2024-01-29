@@ -13,9 +13,9 @@ export default function MadynClients() {
       autoplay: 2000,
     }).mount();
 
-    // return () => {
-    //   glideObj.destroy();
-    // };
+    return () => {
+      glideObj.destroy();
+    };
   }, []);
 
   return (

@@ -1,6 +1,6 @@
+import MadynClients from "@/app/[locale]/madyn/MadynClients";
 import InViewHelper from "@/components/InViewHelper";
 import Image from "next/image";
-import MadynClients from "./MadynClients";
 
 export default function MadynPage() {
   return (
