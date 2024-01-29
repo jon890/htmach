@@ -1,7 +1,10 @@
 import { MapIcon, PhoneIcon } from "@heroicons/react/16/solid";
 import { useTranslations } from "next-intl";
+import { unstable_setRequestLocale } from "next-intl/server";
 
-export default function Footer() {
+export default function Footer({ locale }: { locale: string }) {
+  unstable_setRequestLocale(locale);
+
   const t = useTranslations("Footer");
 
   return (

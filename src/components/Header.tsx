@@ -1,5 +1,6 @@
 import NavLink from "@/components/NavLink";
 import { useTranslations } from "next-intl";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 const Links = [
   { langKey: "madyn", link: "/madyn" },
@@ -10,7 +11,9 @@ const Links = [
   { langKey: "help", link: "#" },
 ];
 
-export default function Header() {
+export default function Header({ locale }: { locale: string }) {
+  unstable_setRequestLocale(locale);
+
   const t = useTranslations();
 
   return (
