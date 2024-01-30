@@ -1,5 +1,5 @@
 import ScrollSection from "@/components/ScrollSection";
-import { getMessages } from "./messages";
+import { getMessages } from "./get-messages";
 import { LocaleParmas } from "./layout";
 
 export default async function Home({

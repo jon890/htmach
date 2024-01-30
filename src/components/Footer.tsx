@@ -1,4 +1,4 @@
-import { getMessages } from "@/app/[locale]/messages";
+import { getMessages } from "@/app/[locale]/get-messages";
 import { MapIcon, PhoneIcon } from "@heroicons/react/16/solid";
 export default async function Footer({ locale }: { locale: "en" | "ko" }) {
   const t = await getMessages(locale);

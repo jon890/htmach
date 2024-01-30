@@ -1,7 +1,7 @@
 import NavLink from "@/components/NavLink";
 import LanguageSelect from "./LanguageSelect";
 import Link from "next/link";
-import { getMessages } from "@/app/[locale]/messages";
+import { getMessages } from "@/app/[locale]/get-messages";
 
 const Links = [
   { langKey: "madyn", link: "/madyn" },

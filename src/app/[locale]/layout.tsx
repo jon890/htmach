@@ -6,7 +6,7 @@ import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import { Locale } from "../../i18n-config";
-import { type getMessages } from "./messages";
+import { type getMessages } from "./get-messages";
 
 export type LocaleParmas = { locale: Locale };
 export type MessageType = {
