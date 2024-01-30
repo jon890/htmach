@@ -140,9 +140,12 @@ export default function Remanufacturing({
                 }
         }
       >
-        <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
-          {translation.Home["remanufacturing.desc"]}
-        </p>
+        <p
+          className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent"
+          dangerouslySetInnerHTML={{
+            __html: translation.Home["remanufacturing.desc"],
+          }}
+        ></p>
       </MainMessage>
     </>
   );
