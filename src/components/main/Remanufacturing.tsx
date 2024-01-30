@@ -1,3 +1,4 @@
+import { MessageType } from "@/app/[locale]/layout";
 import MainMessage from "@/components/main/MainMessage";
 import { calcScrollEffect } from "@/lib/calc-scroll-effect";
 import classnames from "@/lib/classnames";
@@ -7,11 +8,12 @@ export default function Remanufacturing({
   scrollRatio,
   scrollHeight,
   totalScrollHeight,
+  translation,
 }: {
   scrollRatio: number;
   scrollHeight: number;
   totalScrollHeight: number;
-}) {
+} & MessageType) {
   return (
     <>
       <Image
@@ -87,11 +89,11 @@ export default function Remanufacturing({
       >
         <br />
         <h1 className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-7xl font-semibold leading-relaxed text-transparent">
-          사업 분야 소개
+          {translation.Home.subTitle2}
         </h1>
         <br />
         <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
-          1. 재제조
+          {translation.Home.remanufacturing}
         </p>
       </MainMessage>
 
@@ -139,8 +141,7 @@ export default function Remanufacturing({
         }
       >
         <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
-          펌프 One-Stop 재제조 서비스를 통한 <br />
-          로터에 대한 설계, 역설계 연구 역량을 <br /> 보유하고 있습니다.
+          {translation.Home["remanufacturing.desc"]}
         </p>
       </MainMessage>
     </>

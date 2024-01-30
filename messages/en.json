@@ -1,11 +1,23 @@
 {
   "Home": {
     "title": "Everything about rotating machinery, accompanied by HTM.",
-    "subTitle": "We strive to deliver the best results that meet customer demands based on our expertise in the remanufacturing of rotating machinery."
+    "subTitle": "We strive to deliver the best results that meet customer demands based on our expertise in the remanufacturing of rotating machinery.",
+    "subTitle2": "Introduction to Business Areas",
+    "remanufacturing": "1. Remanufacturing",
+    "remanufacturing.desc": "We possess capabilities in rotor design and reverse engineering for pumps through our One-Stop Remanufacturing Service.",
+    "pumpEngineering": "2. Design",
+    "pumpEngineering.desc": "We implement high-level designs based on our capabilities in rotor design and reverse engineering for pumps, turbines, and compressors.",
+    "cfd": "3. Fluid Analysis",
+    "cfd.desc": "We predict the efficiency and performance of rotors through Computational Fluid Dynamics (CFD).",
+    "structuralAnalysis": "4. Structural Analysis",
+    "structuralAnalysis.desc": "We possess capabilities in Structural Analysis (CAE) to ensure the robustness of rotors.",
+    "rotorDynamicsAnalaysis": "5. Shaft System Analysis",
+    "rotorDynamicsAnalaysis.desc": "We establish designs that ensure stability through rotor dynamics analysis for shaft systems."
   },
   "Footer": {
     "address": "1st Engineering Building HTM, 2 Busandaehak-ro 63beon-gil, Geumjeong-gu, Busan, Republic of Korea",
-    "email": "junho@htmach.co.kr"
+    "email": "junho@htmach.co.kr",
+    "rights": "Copyright &#169; 2023 HTM. All Rights Reserved."
   },
   "Common": {
     "preparing": "Preparing"

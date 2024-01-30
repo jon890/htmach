@@ -1,3 +1,4 @@
+import { MessageType } from "@/app/[locale]/layout";
 import MainMessage from "@/components/main/MainMessage";
 import { calcScrollEffect } from "@/lib/calc-scroll-effect";
 import classnames from "@/lib/classnames";
@@ -7,11 +8,12 @@ export default function RotorDynamicsAnalysis({
   scrollRatio,
   scrollHeight,
   totalScrollHeight,
+  translation,
 }: {
   scrollRatio: number;
   scrollHeight: number;
   totalScrollHeight: number;
-}) {
+} & MessageType) {
   return (
     <>
       <Image
@@ -86,7 +88,7 @@ export default function RotorDynamicsAnalysis({
         }
       >
         <h1 className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-7xl font-semibold leading-relaxed text-transparent">
-          5. 축계 해석
+          {translation.Home.rotorDynamicsAnalaysis}
         </h1>
       </MainMessage>
 
@@ -134,11 +136,7 @@ export default function RotorDynamicsAnalysis({
         }
       >
         <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
-          축계의 안정성을 확보하기 위한
-          <br />
-          회전체 동역학을 통해 안정성을
-          <br />
-          확보한 설계를 구축합니다.
+          {translation.Home["rotorDynamicsAnalaysis.desc"]}
         </p>
       </MainMessage>
     </>

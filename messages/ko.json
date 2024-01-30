@@ -1,11 +1,23 @@
 {
   "Home": {
     "title": "회전체 기기의 모든 것, HTM이 함께 합니다.",
-    "subTitle": "회전체 기기의 재제조 업무를 기반으로 고객의 요구에 부합할 수 있는 최선의 결과를 위해 노력합니다."
+    "subTitle": "회전체 기기의 재제조 업무를 기반으로 고객의 요구에 부합할 수 있는 최선의 결과를 위해 노력합니다.",
+    "subTitle2": "사업 분야 소개",
+    "remanufacturing": "1. 재제조",
+    "remanufacturing.desc": "펌프 One-Stop 재제조 서비스를 통한 <br />로터에 대한 설계, 역설계 연구 역량을 <br /> 보유하고 있습니다.",
+    "pumpEngineering": "2. 설계",
+    "pumpEngineering.desc": "펌프, 터빈, 압축기 로터에 대한 설계,<br />역설계 연구 역량을 기반으로<br />수준높은 설계를 구현합니다.",
+    "cfd": "3. 유동 해석",
+    "cfd.desc": "전산유체역학(CFD)를 통해 로터의<br />효율, 성능을 예측합니다.",
+    "structuralAnalysis": "4. 구조 해석",
+    "structuralAnalysis.desc": "로터의 강건성을 확보하기 위한<br />구조해석(CAE) 역량을 보유하고 있습니다.",
+    "rotorDynamicsAnalaysis": "5. 축계 해석",
+    "rotorDynamicsAnalaysis.desc": "축계의 안정성을 확보하기 위한<br />회전체 동역학을 통해 안정성을<br />확보한 설계를 구축합니다."
   },
   "Footer": {
     "address": "부산광역시 금정구 부산대학로63번길 2 (장전동) 제 1공학관 HTM",
-    "email": "junho@htmach.co.kr"
+    "email": "junho@htmach.co.kr",
+    "rights": "Copyright &#169; 2023 HTM. All Rights Reserved."
   },
   "Common": {
     "preparing": "준비 중 입니다"

@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
-import { locales } from "../middleware";
+import { Locale, i18n } from "../i18n-config";
 import {
   Command,
   CommandEmpty,
@@ -21,13 +21,13 @@ import {
 
 export default function LanguageSelect() {
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState("");
+  const [value, setValue] = React.useState<Locale>(i18n.defaultLocale);
 
   const pathname = usePathname();
   const router = useRouter();
 
   const handleSelect = (locale: string) => {
-    setValue(locale === value ? "" : locale);
+    setValue(locale as Locale);
     setOpen(false);
 
     router.push(locale);
@@ -40,20 +40,20 @@ export default function LanguageSelect() {
           variant="outline"
           role="combobox"
           aria-expanded={open}
-          className="ml-4 w-[200px] justify-between"
+          className="ml-4 w-[80px] justify-between"
         >
           {value
-            ? locales.find((locale) => locale === value) ?? ""
-            : "Select Locales..."}
+            ? i18n.locales.find((locale) => locale === value) ?? ""
+            : "Locales"}
           <ChevronsUpDown className="ml-2 h-4 w-4 shrink-0 opacity-50" />
         </Button>
       </PopoverTrigger>
-      <PopoverContent className="w-[200px] p-0">
+      <PopoverContent className="w-[100px] p-0">
         <Command>
-          <CommandInput placeholder="Search framework..." />
-          <CommandEmpty>No framework found.</CommandEmpty>
+          <CommandInput placeholder="Search..." />
+          <CommandEmpty>No locale found.</CommandEmpty>
           <CommandGroup>
-            {locales.map((locale) => (
+            {i18n.locales.map((locale) => (
               <CommandItem key={locale} value={locale} onSelect={handleSelect}>
                 <Check
                   className={cn(

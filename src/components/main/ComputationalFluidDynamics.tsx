@@ -1,3 +1,4 @@
+import { MessageType } from "@/app/[locale]/layout";
 import MainMessage from "@/components/main/MainMessage";
 import { calcScrollEffect } from "@/lib/calc-scroll-effect";
 import classnames from "@/lib/classnames";
@@ -7,11 +8,12 @@ export default function ComputationalFluidDynamics({
   scrollRatio,
   scrollHeight,
   totalScrollHeight,
+  translation,
 }: {
   scrollRatio: number;
   scrollHeight: number;
   totalScrollHeight: number;
-}) {
+} & MessageType) {
   return (
     <>
       <Image
@@ -86,7 +88,7 @@ export default function ComputationalFluidDynamics({
         }
       >
         <h1 className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-7xl font-semibold leading-relaxed text-transparent">
-          3. 유동 해석
+          {translation.Home.cfd}
         </h1>
       </MainMessage>
 
@@ -134,9 +136,7 @@ export default function ComputationalFluidDynamics({
         }
       >
         <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
-          전산유체역학(CFD)를 통해 로터의
-          <br />
-          효율, 성능을 예측합니다.
+          {translation.Home["cfd.desc"]}
         </p>
       </MainMessage>
     </>

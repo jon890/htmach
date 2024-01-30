@@ -1,3 +1,5 @@
+import "server-only";
+
 const messages = {
   en: () =>
     import("../../../messages/en.json").then((module) => module.default),

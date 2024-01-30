@@ -7,8 +7,12 @@ import PumpEngineering from "./main/PumpEngineering";
 import Remanufacturing from "./main/Remanufacturing";
 import RotorDynamicsAnalysis from "./main/RotorDynamicsAnalysis";
 import StructuralAnalysis from "./main/StructuralAnalysis";
+import { LocaleParmas, MessageType } from "@/app/[locale]/layout";
 
-export default function ScrollSection() {
+export default function ScrollSection({
+  locale,
+  translation,
+}: LocaleParmas & MessageType) {
   const containerRef = useRef<HTMLElement>(null);
 
   const { dimension } = useWindowDimensions();
@@ -58,30 +62,35 @@ export default function ScrollSection() {
         scrollHeight={scrollHeight}
         scrollRatio={scrollRatio}
         totalScrollHeight={totalScrollHeight}
+        translation={translation}
       />
 
       <PumpEngineering
         scrollHeight={scrollHeight}
         scrollRatio={scrollRatio}
         totalScrollHeight={totalScrollHeight}
+        translation={translation}
       />
 
       <ComputationalFluidDynamics
         scrollHeight={scrollHeight}
         scrollRatio={scrollRatio}
         totalScrollHeight={totalScrollHeight}
+        translation={translation}
       />
 
       <StructuralAnalysis
         scrollHeight={scrollHeight}
         scrollRatio={scrollRatio}
         totalScrollHeight={totalScrollHeight}
+        translation={translation}
       />
 
       <RotorDynamicsAnalysis
         scrollHeight={scrollHeight}
         scrollRatio={scrollRatio}
         totalScrollHeight={totalScrollHeight}
+        translation={translation}
       />
     </section>
   );

@@ -5,6 +5,13 @@ import "@/styles/glide.core.min.css";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
+import { Locale } from "../../i18n-config";
+import { type getMessages } from "./messages";
+
+export type LocaleParmas = { locale: Locale };
+export type MessageType = {
+  translation: Awaited<ReturnType<typeof getMessages>>;
+};
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -25,7 +32,7 @@ export default function LocaleLayout({
   params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: "en" | "ko" };
+  params: LocaleParmas;
 }) {
   return (
     <html lang={locale}>

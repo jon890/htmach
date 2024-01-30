@@ -1,10 +1,11 @@
 import ScrollSection from "@/components/ScrollSection";
 import { getMessages } from "./messages";
+import { LocaleParmas } from "./layout";
 
 export default async function Home({
   params: { locale },
 }: {
-  params: { locale: "en" | "ko" };
+  params: LocaleParmas;
 }) {
   const t = await getMessages(locale);
 
@@ -27,7 +28,7 @@ export default async function Home({
         />
       </section>
 
-      <ScrollSection />
+      <ScrollSection locale={locale} translation={t} />
     </>
   );
 }

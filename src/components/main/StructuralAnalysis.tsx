@@ -1,3 +1,4 @@
+import { MessageType } from "@/app/[locale]/layout";
 import MainMessage from "@/components/main/MainMessage";
 import { calcScrollEffect } from "@/lib/calc-scroll-effect";
 import classnames from "@/lib/classnames";
@@ -7,11 +8,12 @@ export default function StructuralAnalysis({
   scrollRatio,
   scrollHeight,
   totalScrollHeight,
+  translation,
 }: {
   scrollRatio: number;
   scrollHeight: number;
   totalScrollHeight: number;
-}) {
+} & MessageType) {
   return (
     <>
       <Image
@@ -86,7 +88,7 @@ export default function StructuralAnalysis({
         }
       >
         <h1 className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-7xl font-semibold leading-relaxed text-transparent">
-          4. 구조 해석
+          {translation.Home.structuralAnalysis}
         </h1>
       </MainMessage>
 
@@ -134,9 +136,7 @@ export default function StructuralAnalysis({
         }
       >
         <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
-          로터의 강건성을 확보하기 위한
-          <br />
-          구조해석(CAE) 역량을 보유하고 있습니다.
+          {translation.Home["structuralAnalysis.desc"]}
         </p>
       </MainMessage>
     </>

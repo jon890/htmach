@@ -1,3 +1,4 @@
+import { MessageType } from "@/app/[locale]/layout";
 import MainMessage from "@/components/main/MainMessage";
 import { calcScrollEffect } from "@/lib/calc-scroll-effect";
 import classnames from "@/lib/classnames";
@@ -7,11 +8,12 @@ export default function PumpEngineering({
   scrollRatio,
   scrollHeight,
   totalScrollHeight,
+  translation,
 }: {
   scrollRatio: number;
   scrollHeight: number;
   totalScrollHeight: number;
-}) {
+} & MessageType) {
   return (
     <>
       <Image
@@ -86,7 +88,7 @@ export default function PumpEngineering({
         }
       >
         <h1 className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-7xl font-semibold leading-relaxed text-transparent">
-          2. 설계
+          {translation.Home.pumpEngineering}
         </h1>
       </MainMessage>
 
@@ -134,11 +136,7 @@ export default function PumpEngineering({
         }
       >
         <p className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent">
-          펌프, 터빈, 압축기 로터에 대한 설계,
-          <br />
-          역설계 연구 역량을 기반으로
-          <br />
-          수준높은 설계를 구현합니다.
+          {translation.Home["pumpEngineering.desc"]}
         </p>
       </MainMessage>
     </>

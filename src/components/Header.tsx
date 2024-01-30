@@ -25,10 +25,15 @@ export default async function Header({ locale }: { locale: "en" | "ko" }) {
           HTM
         </Link>
         {Links.map(({ langKey, link }) => (
-          <NavLink text={t.Menu[langKey]} href={link} key={langKey} />
+          <NavLink
+            text={t.Menu[langKey]}
+            href={link}
+            key={langKey}
+            preparingMessage={t.Common.preparing}
+          />
         ))}
 
-        <LanguageSelect />
+        <LanguageSelect locale={locale} />
       </nav>
     </header>
   );

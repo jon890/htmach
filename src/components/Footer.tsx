@@ -15,7 +15,7 @@ export default async function Footer({ locale }: { locale: "en" | "ko" }) {
         <span>{t.Footer.email}</span>
       </p>
 
-      <p>Copyright &#169; 2023 HTM. All Rights Reserved.</p>
+      <p>{t.Footer.rights}</p>
     </footer>
   );
 }
