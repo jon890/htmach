@@ -33,7 +33,7 @@ export default async function Header({ locale }: { locale: "en" | "ko" }) {
           />
         ))}
 
-        <LanguageSelect locale={locale} />
+        <LanguageSelect />
       </nav>
     </header>
   );

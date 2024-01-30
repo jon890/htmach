@@ -20,17 +20,27 @@ import {
 } from "./ui/command";
 
 export default function LanguageSelect() {
-  const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState<Locale>(i18n.defaultLocale);
-
   const pathname = usePathname();
   const router = useRouter();
+
+  const currentLocale =
+    (pathname.split("/").filter((it) => it !== "")[0] as Locale) ??
+    i18n.defaultLocale;
+
+  const [open, setOpen] = React.useState(false);
+  const [value, setValue] = React.useState<Locale>(currentLocale);
 
   const handleSelect = (locale: string) => {
     setValue(locale as Locale);
     setOpen(false);
 
-    router.push(locale);
+    const pathSplits = pathname.split("/").filter((it) => it !== "");
+    if (i18n.locales.includes(pathSplits[0] as Locale)) {
+      pathSplits[0] = locale;
+    }
+    const path = "/" + pathSplits.join("/");
+    console.log("path splits", locale, pathSplits, path);
+    router.push(path);
   };
 
   return (
