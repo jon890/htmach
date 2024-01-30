@@ -1,7 +1,7 @@
 import NavLink from "@/components/NavLink";
-import { useTranslations } from "next-intl";
-import { Link } from "../navigation";
 import LanguageSelect from "./LanguageSelect";
+import Link from "next/link";
+import { getMessages } from "@/app/[locale]/messages";
 
 const Links = [
   { langKey: "madyn", link: "/madyn" },
@@ -10,10 +10,10 @@ const Links = [
   { langKey: "technilogy-status", link: "#" },
   { langKey: "performance-cases", link: "#" },
   { langKey: "help", link: "#" },
-];
+] as const;
 
-export default function Header() {
-  const t = useTranslations();
+export default async function Header({ locale }: { locale: "en" | "ko" }) {
+  const t = await getMessages(locale);
 
   return (
     <header className="sticky left-0 top-0 z-20 h-12 w-full bg-navColor py-10">
@@ -25,7 +25,7 @@ export default function Header() {
           HTM
         </Link>
         {Links.map(({ langKey, link }) => (
-          <NavLink text={t(`Menu.${langKey}`)} href={link} key={langKey} />
+          <NavLink text={t.Menu[langKey]} href={link} key={langKey} />
         ))}
 
         <LanguageSelect />

@@ -5,12 +5,15 @@ import "@/styles/glide.core.min.css";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
-import { locales } from "../../navigation";
 
 const fontSans = FontSans({
   subsets: ["latin"],
   variable: "--font-sans",
 });
+
+export async function generateStaticParams() {
+  return [{ locale: "ko" }, { locale: "en" }];
+}
 
 export const metadata: Metadata = {
   title: "HTMACH",
@@ -22,7 +25,7 @@ export default function LocaleLayout({
   params: { locale },
 }: {
   children: React.ReactNode;
-  params: { locale: string };
+  params: { locale: "en" | "ko" };
 }) {
   return (
     <html lang={locale}>
@@ -33,9 +36,9 @@ export default function LocaleLayout({
         )}
       >
         <main className="flex flex-col items-center justify-between">
-          <Header />
+          <Header locale={locale} />
           {children}
-          <Footer />
+          <Footer locale={locale} />
         </main>
       </body>
     </html>

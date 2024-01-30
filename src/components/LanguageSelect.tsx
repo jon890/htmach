@@ -1,13 +1,16 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import {
   Popover,
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
-import React from "react";
-import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 import { Check, ChevronsUpDown } from "lucide-react";
+import { usePathname, useRouter } from "next/navigation";
+import React from "react";
+import { locales } from "../middleware";
 import {
   Command,
   CommandEmpty,
@@ -15,8 +18,6 @@ import {
   CommandInput,
   CommandItem,
 } from "./ui/command";
-import { locales, usePathname, useRouter } from "../navigation";
-import { cn } from "@/lib/utils";
 
 export default function LanguageSelect() {
   const [open, setOpen] = React.useState(false);
@@ -28,7 +29,8 @@ export default function LanguageSelect() {
   const handleSelect = (locale: string) => {
     setValue(locale === value ? "" : locale);
     setOpen(false);
-    router.push(locale + pathname);
+
+    router.push(locale);
   };
 
   return (

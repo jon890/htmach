@@ -1,15 +1,19 @@
 import ScrollSection from "@/components/ScrollSection";
-import { useTranslations } from "next-intl";
+import { getMessages } from "./messages";
 
-export default function Home() {
-  const t = useTranslations("Home");
+export default async function Home({
+  params: { locale },
+}: {
+  params: { locale: "en" | "ko" };
+}) {
+  const t = await getMessages(locale);
 
   return (
     <>
       <section className="top-[80px] h-[calc(100vh-80px)] w-full overflow-hidden">
         <div className="absolute bottom-[10vh] z-10 w-full space-y-10 text-center text-white">
-          <h1 className="text-5xl font-bold">{t("title")}</h1>
-          <h2 className="text-lg font-semibold">{t("subTitle")}</h2>
+          <h1 className="text-5xl font-bold">{t.Home.title}</h1>
+          <h2 className="text-lg font-semibold">{t.Home.subTitle}</h2>
         </div>
         <video
           id="main-video"

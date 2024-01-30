@@ -1,27 +1,17 @@
 "use client";
 
-import Glide from "@glidejs/glide";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
 import Image from "next/image";
-import { useEffect } from "react";
 
 export default function MadynClients() {
-  useEffect(() => {
-    const glideObj = new Glide(".glide", {
-      type: "carousel",
-      perView: 4,
-      gap: 32,
-      autoplay: 2000,
-    }).mount();
-
-    return () => {
-      glideObj.destroy();
-    };
-  }, []);
-
   return (
-    <div className="glide">
-      <div className="glide__track" data-glide-el="track">
-        <ul className="glide__slides flex flex-row items-center justify-center gap-10 *:flex-1 *:object-cover">
+    <Carousel className="w-full max-w-[1300px] *:object-cover">
+      <CarouselContent className="-ml-1">
+        <CarouselItem className="basis-1/3 pl-4">
           <Image
             src="/images/logo/abb-logo.png"
             className="glide__slide"
@@ -29,6 +19,9 @@ export default function MadynClients() {
             height="25"
             alt="abb-logo"
           />
+        </CarouselItem>
+
+        <CarouselItem className="basis-1/3 pl-4">
           <Image
             src="/images/logo/andritz-logo.png"
             className="glide__slide"
@@ -36,6 +29,9 @@ export default function MadynClients() {
             height="25"
             alt="andritz-logo"
           />
+        </CarouselItem>
+
+        <CarouselItem className="basis-1/3 pl-4">
           <Image
             src="/images/logo/bosch-logo.png"
             className="glide__slide"
@@ -43,6 +39,9 @@ export default function MadynClients() {
             height="25"
             alt="bosch-logo"
           />
+        </CarouselItem>
+
+        <CarouselItem className="basis-1/3 pl-4">
           <Image
             src="/images/logo/sulzer-logo.png"
             className="glide__slide"
@@ -50,6 +49,9 @@ export default function MadynClients() {
             height="25"
             alt="sulzer-logo"
           />
+        </CarouselItem>
+
+        <CarouselItem className="basis-1/3 pl-4">
           <Image
             src="/images/logo/ge-vernova-logo.png"
             className="glide__slide"
@@ -57,6 +59,9 @@ export default function MadynClients() {
             height="25"
             alt="ge-vernova-logo"
           />
+        </CarouselItem>
+
+        <CarouselItem className="basis-1/3 pl-4">
           <Image
             src="/images/logo/simens-energy-logo.png"
             className="glide__slide"
@@ -64,6 +69,9 @@ export default function MadynClients() {
             height="25"
             alt="simens-energy-logo"
           />
+        </CarouselItem>
+
+        <CarouselItem className="basis-1/3 pl-4">
           <Image
             src="/images/logo/shell-logo.png"
             className="glide__slide"
@@ -71,8 +79,8 @@ export default function MadynClients() {
             height="25"
             alt="shell-logo"
           />
-        </ul>
-      </div>
-    </div>
+        </CarouselItem>
+      </CarouselContent>
+    </Carousel>
   );
 }
