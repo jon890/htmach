@@ -16,7 +16,7 @@ export default async function Header({ locale }: { locale: "en" | "ko" }) {
   const t = await getMessages(locale);
 
   return (
-    <header className="bg-navColor sticky left-0 top-0 z-20 h-12 w-full py-10">
+    <header className="fixed left-0 top-0 z-20 h-20 w-full bg-white py-10">
       <nav className="mx-auto flex h-full max-w-[1000px] items-center">
         <LinkWithLocale
           href="/"

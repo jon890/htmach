@@ -38,11 +38,11 @@ export default function LocaleLayout({
     <html lang={locale}>
       <body
         className={cn(
-          "bg-background min-h-screen font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased",
           fontSans.variable,
         )}
       >
-        <main className="flex flex-col items-center justify-between">
+        <main className="mt-20 flex flex-col items-center justify-between">
           <Header locale={locale} />
           {children}
           <Footer locale={locale} />
