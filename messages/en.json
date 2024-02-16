@@ -24,11 +24,11 @@
   },
   "Menu": {
     "madyn": "MADYN",
-    "company-introduce": "Company Introduction",
+    "company-introduce": "About us",
     "business-area": "Business Areas",
     "technilogy-status": "Technology Status",
     "performance-cases": "Performance/Cases",
-    "help": "Customer Service"
+    "help": "Contact"
   },
   "madyn": {
     "title": "MADYN 2000",
