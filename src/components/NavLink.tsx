@@ -18,9 +18,11 @@ export default function NavLink({
     (pathname.split("/").filter((it) => it !== "")[0] as Locale) ??
     i18n.defaultLocale;
 
+  // console.log(currentLocale);
+
   return (
     <Link
-      href={href !== "#" ? `${currentLocale}${href}` : href}
+      href={href !== "#" ? `/${currentLocale}/${href}` : href}
       className="ml-4 font-semibold"
       onClick={() => {
         if (href === "#" && preparingMessage) {

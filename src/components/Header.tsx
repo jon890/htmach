@@ -4,7 +4,7 @@ import Link from "next/link";
 import { getMessages } from "@/app/[locale]/get-messages";
 
 const Links = [
-  { langKey: "madyn", link: "/madyn", order: 2, visible: true },
+  { langKey: "madyn", link: "madyn", order: 2, visible: true },
   { langKey: "company-introduce", link: "#", order: 1, visible: true },
   { langKey: "business-area", link: "#", order: 3, visible: false },
   { langKey: "technilogy-status", link: "#", order: 4, visible: false },
