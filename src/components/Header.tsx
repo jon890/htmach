@@ -1,7 +1,6 @@
+import { getMessages } from "@/app/[locale]/get-messages";
 import NavLink from "@/components/NavLink";
 import LanguageSelect from "./LanguageSelect";
-import Link from "next/link";
-import { getMessages } from "@/app/[locale]/get-messages";
 import LinkWithLocale from "./LinkWithLocale";
 
 const Links = [
