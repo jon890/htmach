@@ -116,6 +116,123 @@ export default async function Home({
             />
           </InViewHelper>
         </article>
+
+        <article className="flex flex-col gap-4">
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <Image
+              src="/images/bg-computational-fluid-dynamics.jpg"
+              alt="bg-pump-engineering"
+              height="500"
+              width="500"
+              className="rounded-xl"
+            />
+          </InViewHelper>
+
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
+              {t.Home.cfd}
+            </p>
+          </InViewHelper>
+
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <p
+              className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
+              dangerouslySetInnerHTML={{
+                __html: t.Home["cfd.desc"],
+              }}
+            />
+          </InViewHelper>
+        </article>
+
+        <article className="flex flex-col gap-4">
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <Image
+              src="/images/bg-rotor-dynamics-analysis.jpg"
+              alt="bg-pump-engineering"
+              height="500"
+              width="500"
+              className="rounded-xl"
+            />
+          </InViewHelper>
+
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
+              {t.Home.rotorDynamicsAnalaysis}
+            </p>
+          </InViewHelper>
+
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <p
+              className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
+              dangerouslySetInnerHTML={{
+                __html: t.Home["rotorDynamicsAnalaysis.desc"],
+              }}
+            />
+          </InViewHelper>
+        </article>
+
+        <article className="flex flex-col gap-4">
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <Image
+              src="/images/bg-people-computational-fluid-dynamics.jpg"
+              alt="bg-pump-engineering"
+              height="500"
+              width="500"
+              className="rounded-xl"
+            />
+          </InViewHelper>
+
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
+              {t.Home.structuralAnalysis}
+            </p>
+          </InViewHelper>
+
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <p
+              className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
+              dangerouslySetInnerHTML={{
+                __html: t.Home["structuralAnalysis.desc"],
+              }}
+            />
+          </InViewHelper>
+        </article>
       </section>
       {/* <ScrollSection locale={locale} translation={t} /> */}
     </>
