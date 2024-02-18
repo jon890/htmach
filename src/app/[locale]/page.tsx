@@ -79,23 +79,42 @@ export default async function Home({
         </article>
 
         <article className="flex flex-col gap-4">
-          <Image
-            src="/images/bg-pump-engineering.jpg"
-            alt="bg-pump-engineering"
-            height="500"
-            width="500"
-            className="rounded-xl"
-          />
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <Image
+              src="/images/bg-pump-engineering.jpg"
+              alt="bg-pump-engineering"
+              height="500"
+              width="500"
+              className="rounded-xl"
+            />
+          </InViewHelper>
 
-          <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
-            {t.Home.pumpEngineering}
-          </p>
-          <p
-            className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
-            dangerouslySetInnerHTML={{
-              __html: t.Home["pumpEngineering.desc"],
-            }}
-          />
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
+              {t.Home.pumpEngineering}
+            </p>
+          </InViewHelper>
+
+          <InViewHelper
+            anyClass="transition duration-1000 opacity-0"
+            inClass="opacity-100"
+            outClass="translate-y-[1rem]"
+          >
+            <p
+              className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
+              dangerouslySetInnerHTML={{
+                __html: t.Home["pumpEngineering.desc"],
+              }}
+            />
+          </InViewHelper>
         </article>
       </section>
       {/* <ScrollSection locale={locale} translation={t} /> */}
