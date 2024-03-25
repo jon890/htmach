@@ -265,11 +265,6 @@ export default async function MadynPage({
           </ul>
         </InViewHelper>
       </article>
-
-      <article className="flex max-w-[1300px] flex-col items-center justify-center gap-10 py-16">
-        <h2 className="text-5xl font-semibold">Clients</h2>
-        <MadynClients />
-      </article>
     </section>
   );
 }
