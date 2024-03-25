@@ -1,4 +1,4 @@
-import { getMessages } from "@/app/[locale]/get-messages";
+import { getMessages } from "@/lib/get-messages";
 import NavLink from "@/components/NavLink";
 import LanguageSelect from "./LanguageSelect";
 import LinkWithLocale from "./LinkWithLocale";

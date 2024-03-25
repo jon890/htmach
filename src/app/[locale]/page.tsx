@@ -1,5 +1,5 @@
 import ScrollSection from "@/components/ScrollSection";
-import { getMessages } from "./get-messages";
+import { getMessages } from "../../lib/get-messages";
 import { LocaleParmas } from "./layout";
 import Image from "next/image";
 import InViewHelper from "@/components/InViewHelper";

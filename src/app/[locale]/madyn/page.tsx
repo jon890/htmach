@@ -1,6 +1,6 @@
 import InViewHelper from "@/components/InViewHelper";
 import Image from "next/image";
-import { getMessages } from "../get-messages";
+import { getMessages } from "@/lib/get-messages";
 import { LocaleParmas } from "../layout";
 
 export default async function MadynPage({
