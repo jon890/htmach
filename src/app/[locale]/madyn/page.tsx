@@ -1,8 +1,7 @@
-import MadynClients from "@/app/[locale]/madyn/MadynClients";
 import InViewHelper from "@/components/InViewHelper";
 import Image from "next/image";
-import { LocaleParmas } from "../layout";
 import { getMessages } from "../get-messages";
+import { LocaleParmas } from "../layout";
 
 export default async function MadynPage({
   params: { locale },
