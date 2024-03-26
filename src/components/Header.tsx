@@ -2,6 +2,7 @@ import { getMessages } from "@/lib/get-messages";
 import NavLink from "@/components/NavLink";
 import LanguageSelect from "./LanguageSelect";
 import LinkWithLocale from "./LinkWithLocale";
+import Image from "next/image";
 
 const Links = [
   { langKey: "madyn", link: "madyn", order: 2, visible: true },
@@ -20,9 +21,15 @@ export default async function Header({ locale }: { locale: "en" | "ko" }) {
       <nav className="mx-auto flex h-full max-w-[1000px] items-center px-4">
         <LinkWithLocale
           href="/"
-          className="mr-auto bg-gradient-to-r from-blue-500 via-gray-500 to-black bg-clip-text text-3xl font-bold text-transparent"
+          className="mr-auto flex flex-row items-center justify-center gap-2 bg-gradient-to-r from-blue-500 via-gray-500 to-black bg-clip-text text-3xl font-bold text-transparent"
         >
-          HTM
+          <Image
+            src="/images/logo/htm_logo.png"
+            width="45"
+            height="40"
+            alt="htm_logo"
+          />
+          <span>HTM</span>
         </LinkWithLocale>
         {Links.filter((link) => link.visible)
           .sort((a, b) => a.order - b.order)
