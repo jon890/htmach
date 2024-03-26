@@ -20,7 +20,13 @@ export default function InViewHelper({
       {({ inView, ref, entry }) => (
         <div
           ref={ref}
-          className={classnames(anyClass, inView ? inClass : outClass)}
+          className={classnames(
+            anyClass,
+            "opacity-0 transition duration-1000",
+            inView
+              ? `${inClass} opacity-100`
+              : `${outClass} translate-y-[1rem]`,
+          )}
         >
           {children}
         </div>

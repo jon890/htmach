@@ -21,7 +21,7 @@ export default async function Header({ locale }: { locale: "en" | "ko" }) {
       <nav className="mx-auto flex h-full max-w-[1000px] items-center px-4">
         <LinkWithLocale
           href="/"
-          className="mr-auto flex flex-row items-center justify-center gap-2 bg-gradient-to-r from-blue-500 via-gray-500 to-black bg-clip-text text-3xl font-bold text-transparent"
+          className="mr-auto flex flex-row items-center justify-center gap-2 text-3xl font-bold "
         >
           <Image
             src="/images/logo/htm_logo.png"
@@ -29,7 +29,9 @@ export default async function Header({ locale }: { locale: "en" | "ko" }) {
             height="40"
             alt="htm_logo"
           />
-          <span>HTM</span>
+          <span className="bg-gradient-to-r from-blue-500 via-gray-500 to-black bg-clip-text text-transparent">
+            HTM
+          </span>
         </LinkWithLocale>
         {Links.filter((link) => link.visible)
           .sort((a, b) => a.order - b.order)
