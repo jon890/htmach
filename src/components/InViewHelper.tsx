@@ -6,9 +6,9 @@ import { InView } from "react-intersection-observer";
 
 export default function InViewHelper({
   children,
-  anyClass,
-  inClass,
-  outClass,
+  anyClass = "",
+  inClass = "",
+  outClass = "",
 }: {
   children: ReactNode;
   anyClass?: string;
