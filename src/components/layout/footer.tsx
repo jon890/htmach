@@ -14,7 +14,7 @@ export default async function Footer({ locale }: Props) {
   const { t } = await useTranslation({ locale, namespace: "footer" });
 
   return (
-    <footer className="mt-20 w-full bg-[#212B4E] py-10 lg:py-7">
+    <footer className="w-full bg-[#212B4E] py-10 lg:py-7">
       <div className="container px-8 lg:px-4 container:px-0">
         <div
           className={cn(

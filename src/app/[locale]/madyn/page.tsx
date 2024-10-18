@@ -13,9 +13,9 @@ export default async function MadynPage({ params: { locale } }: Props) {
   const { t } = await useTranslation({ locale, namespace: "madyn" });
 
   return (
-    <section className="flex min-h-screen w-full flex-col items-center justify-center bg-black px-10 pt-16 text-white">
+    <section className="flex min-h-screen w-full flex-col items-center justify-center bg-black px-10 text-white">
       <InViewHelper
-        anyClass="transition duration-1000 opacity-0"
+        anyClass="transition duration-1000 opacity-0 pt-20"
         inClass="opacity-100"
         outClass="translate-y-[1rem]"
       >

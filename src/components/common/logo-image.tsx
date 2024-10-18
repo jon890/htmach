@@ -9,7 +9,7 @@ type Props = {
 export default function LogoImage({ textClassName }: Props) {
   return (
     <Link
-      href=""
+      href="/"
       className="mr-auto flex flex-row items-center justify-center gap-2 text-3xl font-bold"
     >
       <Image

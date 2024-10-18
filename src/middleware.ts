@@ -10,9 +10,7 @@ acceptLanguage.languages(languages);
 
 export const config = {
   // matcher: '/:lng*'
-  matcher: [
-    "/((?!api|_next/static|_next/image|assets|favicon.ico|sw.js|site.webmanifest).*)",
-  ],
+  matcher: ["/((?!api|_next/static|_next/image|favicon.ico|assets).*)"],
 };
 
 export function middleware(req: NextRequest) {
@@ -23,12 +21,15 @@ export function middleware(req: NextRequest) {
   if (!lng) lng = acceptLanguage.get(req.headers.get("Accept-Language"));
   if (!lng) lng = fallbackLng;
 
+  console.log("pathname", req.nextUrl.pathname, "locale", lng);
+
   // Redirect if locale in path is not supported
   if (
     !languages.some((locale) =>
       req.nextUrl.pathname.startsWith(`/${locale}`),
     ) &&
-    !req.nextUrl.pathname.startsWith("/_next")
+    !req.nextUrl.pathname.startsWith("/_next") &&
+    !req.nextUrl.pathname.startsWith("/images")
   ) {
     return NextResponse.redirect(
       new URL(`/${lng}${req.nextUrl.pathname}`, req.url),

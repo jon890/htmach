@@ -6,6 +6,9 @@ import { useState } from "react";
 import { HTM_VISIBLE_MENU } from "@/constants/menu.const";
 import { useTranslation } from "@/app/i18n/client";
 import { LocaleType } from "@/types/locale-type";
+import DividerX from "../common/divider-x";
+import { ChevronRightIcon } from "lucide-react";
+import Link from "next/link";
 
 type Props = {
   onChangeVisibleMenu?: (visible: boolean) => void;
@@ -55,6 +58,49 @@ export default function PcMenu({ onChangeVisibleMenu, locale }: Props) {
           </li>
         ))}
       </ul>
+
+      <div
+        className={cn(
+          "absolute left-0 w-full bg-white shadow-xl transition-opacity duration-300",
+          visibleMenu ? "top-[100px] opacity-100" : "-top-[2000px] opacity-0",
+        )}
+        onMouseEnter={() => showMenu()}
+        onMouseLeave={() => hideMenu()}
+      >
+        <DividerX />
+
+        <div className="container flex h-full w-full flex-row gap-5 pb-10 pt-6">
+          {HTM_VISIBLE_MENU.map(({ langKey, link, depth, children }) => (
+            <div key={langKey}>
+              <div className="flex flex-row items-center justify-start gap-1">
+                <span className="text-base font-bold text-[#AAAAAA]">
+                  {t(langKey)}
+                </span>
+                <ChevronRightIcon className="size-[10px] text-[#AAAAAA]" />
+              </div>
+
+              <div className="mt-3 rounded-md border">
+                <ul
+                  className={cn(
+                    "px-9 py-6 *:mt-2 *:py-1.5 *:text-[18px] *:font-semibold",
+                  )}
+                >
+                  {children?.map((secondMenu, index) => (
+                    <li key={secondMenu.langKey}>
+                      <Link
+                        href={secondMenu.link}
+                        onClick={(event) => movePage(event, secondMenu.link)}
+                      >
+                        {t(secondMenu.langKey)}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </>
   );
 }
