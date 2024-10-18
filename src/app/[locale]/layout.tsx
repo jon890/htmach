@@ -1,17 +1,14 @@
 import "@/app/[locale]/globals.css";
-import Header from "@/components/Header";
 import Footer from "@/components/layout/footer";
 import NavBar from "@/components/layout/navbar";
 import { FONT_PRETENDARD } from "@/lib/font-lib";
-import { type getMessages } from "@/lib/get-messages";
-import { cn } from "@/lib/utils";
+import { LanguageReturnType } from "@/lib/server/languages";
 import { LocaleType } from "@/types/locale-type";
 import { Metadata } from "next";
-import { Inter as FontSans } from "next/font/google";
 
 export type LocaleParmas = { locale: LocaleType };
 export type MessageType = {
-  translation: Awaited<ReturnType<typeof getMessages>>;
+  translation: LanguageReturnType;
 };
 
 export async function generateStaticParams() {

@@ -1,9 +1,9 @@
-import { getMessages } from "@/lib/get-messages";
-import { cn } from "@/lib/utils";
-import { LocaleType } from "@/types/locale-type";
 import DividerX from "@/components/common/divider-x";
 import DividerY from "@/components/common/divider-y";
 import LogoImage from "@/components/common/logo-image";
+import Languages from "@/lib/server/languages";
+import { cn } from "@/lib/utils";
+import { LocaleType } from "@/types/locale-type";
 
 type Props = {
   locale: LocaleType;
@@ -11,7 +11,7 @@ type Props = {
 
 // TODO : HTM 대표 색상으로 수정
 export default async function Footer({ locale }: Props) {
-  const t = await getMessages(locale);
+  const t = await Languages.ofLocale(locale);
 
   return (
     <footer className="mt-20 w-full bg-[#212B4E] py-10 lg:py-7">

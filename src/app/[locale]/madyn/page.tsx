@@ -1,6 +1,6 @@
 import InViewHelper from "@/components/InViewHelper";
+import Languages from "@/lib/server/languages";
 import Image from "next/image";
-import { getMessages } from "@/lib/get-messages";
 import { LocaleParmas } from "../layout";
 
 export default async function MadynPage({
@@ -8,7 +8,7 @@ export default async function MadynPage({
 }: {
   params: LocaleParmas;
 }) {
-  const t = await getMessages(locale);
+  const t = await Languages.ofLocale(locale);
 
   return (
     <section className="flex min-h-screen w-full flex-col items-center justify-center bg-black px-10 pt-16 text-white">

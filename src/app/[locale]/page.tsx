@@ -1,6 +1,6 @@
 import InViewHelper from "@/components/InViewHelper";
+import Languages from "@/lib/server/languages";
 import Image from "next/image";
-import { getMessages } from "@/lib/get-messages";
 import { LocaleParmas } from "./layout";
 import MainImages from "./main-images";
 
@@ -9,7 +9,7 @@ export default async function Home({
 }: {
   params: LocaleParmas;
 }) {
-  const t = await getMessages(locale);
+  const t = await Languages.ofLocale(locale);
 
   return (
     <>
