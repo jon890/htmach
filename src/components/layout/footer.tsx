@@ -22,7 +22,7 @@ export default async function Footer({ locale }: Props) {
             "pc lg:flex-row lg:gap-12",
           )}
         >
-          <LogoImage />
+          <LogoImage isLink={false} />
         </div>
 
         <DividerX className="my-6 hidden bg-white bg-opacity-30 lg:block" />
