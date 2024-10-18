@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import LogoImage from "../common/logo-image";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import PcMenu from "./pc-menu";
 
 export default function PcNavBar() {
   const [visibleMenu, setVisibleMenu] = useState(false);
@@ -25,17 +26,18 @@ export default function PcNavBar() {
     <nav
       className={cn(
         "fixed top-0 z-20 h-[100px] w-full bg-white px-4 text-black",
+        visibleMenu ? "bg-opacity-100" : "bg-opacity-50",
         isTop ? "backdrop-blur" : "!bg-white shadow-md",
       )}
     >
       <div className="just-center container flex h-full flex-row items-center font-bold">
         <LogoImage textClassName="bg-gradient-to-r from-blue-500 via-gray-500 to-black bg-clip-text text-transparent" />
 
-        {/* PC MENU */}
+        <PcMenu />
 
         <div
           className={cn(
-            "ml-32 flex flex-row items-center justify-center gap-3 bg-white px-4 py-3",
+            "ml-12 flex flex-row items-center justify-center gap-3 bg-white px-4 py-3",
             "rounded-[30px] border-2 border-[#BBBBBB]",
           )}
         >

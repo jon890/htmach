@@ -17,7 +17,7 @@ export default function ScrollSection({
 
   const { dimension } = useWindowDimensions();
   const [totalScrollHeight, setTotalScrollHeight] = useState(0);
-  const prevHeight = dimension.height;
+  const prevHeight = dimension.height ?? 0;
 
   const [{ height: scrollHeight, ratio: scrollRatio }, setScroll] = useState<{
     height: number;
@@ -32,7 +32,7 @@ export default function ScrollSection({
 
   // window.onLoad
   useEffect(() => {
-    setTotalScrollHeight(dimension.height * 10 - prevHeight);
+    setTotalScrollHeight(dimension.height ?? 0 * 10 - prevHeight);
 
     window.addEventListener("scroll", handleScroll);
 

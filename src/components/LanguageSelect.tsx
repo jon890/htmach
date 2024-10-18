@@ -7,10 +7,11 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { cn } from "@/lib/utils";
+import { LocaleType } from "@/types/locale-type";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
-import { Locale, i18n } from "../i18n-config";
+import { i18n } from "../i18n-config";
 import {
   Command,
   CommandEmpty,
@@ -24,18 +25,18 @@ export default function LanguageSelect() {
   const router = useRouter();
 
   const currentLocale =
-    (pathname.split("/").filter((it) => it !== "")[0] as Locale) ??
+    (pathname.split("/").filter((it) => it !== "")[0] as LocaleType) ??
     i18n.defaultLocale;
 
   const [open, setOpen] = React.useState(false);
-  const [value, setValue] = React.useState<Locale>(currentLocale);
+  const [value, setValue] = React.useState<LocaleType>(currentLocale);
 
   const handleSelect = (locale: string) => {
-    setValue(locale as Locale);
+    setValue(locale as LocaleType);
     setOpen(false);
 
     const pathSplits = pathname.split("/").filter((it) => it !== "");
-    if (i18n.locales.includes(pathSplits[0] as Locale)) {
+    if (i18n.locales.includes(pathSplits[0] as LocaleType)) {
       pathSplits[0] = locale;
     }
     const path = "/" + pathSplits.join("/");
