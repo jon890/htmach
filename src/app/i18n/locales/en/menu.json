@@ -1,8 +1,18 @@
 {
-  "madyn": "MADYN",
-  "company-introduce": "About us",
+  "introduce": "About us",
+  "introduce.map": "Map",
+
   "business-area": "Business Areas",
-  "technilogy-status": "Technology Status",
+  "business.design": "Design",
+  "business.flow_analysis": "Flow Analysis",
+  "business.structural_analysis": "Structural Analysis",
+  "business.axis_analysis": "Axis Analysis",
+
+  "madyn": "MADYN",
+
   "performance-cases": "Performance/Cases",
+  "performance-cases.license": "License",
+  "performance-cases.dissertation": "Dissertation",
+
   "help": "Contact"
 }

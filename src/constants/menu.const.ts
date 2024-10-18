@@ -7,6 +7,12 @@ export type HTM_MENU_TYPE = {
   children?: HTM_MENU_TYPE[];
 };
 
+/**
+ * 사이트 전반적인 메뉴를 관리하는 객체입니다.
+ * 이 곳에 메뉴를 추가하면 반영됩니다.
+ *
+ * 언어 파일은 menu.json을 참고해주세요
+ */
 const HTM_MENU_CONST: HTM_MENU_TYPE[] = [
   {
     langKey: "madyn",
@@ -25,7 +31,7 @@ const HTM_MENU_CONST: HTM_MENU_TYPE[] = [
     ],
   },
   {
-    langKey: "company-introduce",
+    langKey: "introduce",
     link: "/introduce",
     order: 1,
     visible: true,
@@ -40,7 +46,7 @@ const HTM_MENU_CONST: HTM_MENU_TYPE[] = [
       },
 
       {
-        langKey: "map",
+        langKey: "introduce.map",
         link: "/introduce/map",
         order: 2,
         visible: true,
@@ -55,14 +61,6 @@ const HTM_MENU_CONST: HTM_MENU_TYPE[] = [
     visible: true,
     depth: 1,
     children: [
-      {
-        langKey: "business.remanufacturing",
-        link: "/business/remanufacturing",
-        order: 1,
-        visible: true,
-        depth: 2,
-      },
-
       {
         langKey: "business.design",
         link: "/business/design",
@@ -107,9 +105,48 @@ const HTM_MENU_CONST: HTM_MENU_TYPE[] = [
     order: 5,
     visible: true,
     depth: 1,
+    children: [
+      {
+        langKey: "performance-cases.license",
+        link: "/performance-cases/license",
+        order: 2,
+        visible: true,
+        depth: 2,
+      },
+
+      {
+        langKey: "performance-cases.dissertation",
+        link: "/performance-cases/dissertation",
+        order: 3,
+        visible: true,
+        depth: 2,
+      },
+      {
+        langKey: "performance-cases",
+        link: "/performance-cases",
+        order: 4,
+        visible: true,
+        depth: 2,
+      },
+    ],
   },
 
-  { langKey: "help", link: "/help", order: 6, visible: true, depth: 1 },
+  {
+    langKey: "help",
+    link: "/help",
+    order: 6,
+    visible: true,
+    depth: 1,
+    children: [
+      {
+        langKey: "help",
+        link: "/help",
+        order: 1,
+        visible: true,
+        depth: 2,
+      },
+    ],
+  },
 ] as const;
 
 export const HTM_VISIBLE_MENU = HTM_MENU_CONST.filter(

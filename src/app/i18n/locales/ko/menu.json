@@ -1,8 +1,18 @@
 {
-  "madyn": "MADYN",
-  "company-introduce": "기업소개",
+  "introduce": "기업소개",
+  "introduce.map": "찾아오시는 길",
+
   "business-area": "사업분야",
-  "technilogy-status": "기술현황",
+  "business.design": "설계",
+  "business.flow_analysis": "유동해석",
+  "business.structural_analysis": "구조해석",
+  "business.axis_analysis": "축계해석",
+
+  "madyn": "MADYN",
+
   "performance-cases": "실적/사례",
+  "performance-cases.license": "라이선스",
+  "performance-cases.dissertation": "논문",
+
   "help": "문의"
 }

@@ -69,11 +69,11 @@ export default function PcMenu({ onChangeVisibleMenu, locale }: Props) {
       >
         <DividerX />
 
-        <div className="container flex h-full w-full flex-row gap-5 pb-10 pt-6">
+        <div className="container flex h-full w-full flex-row justify-between gap-5 px-10 pb-10 pt-6 container:px-0">
           {HTM_VISIBLE_MENU.map(({ langKey, link, depth, children }) => (
             <div key={langKey}>
               <div className="flex flex-row items-center justify-start gap-1">
-                <span className="text-base font-bold text-[#AAAAAA]">
+                <span className="text-base font-bold text-[#9d8e8e]">
                   {t(langKey)}
                 </span>
                 <ChevronRightIcon className="size-[10px] text-[#AAAAAA]" />
@@ -85,16 +85,19 @@ export default function PcMenu({ onChangeVisibleMenu, locale }: Props) {
                     "px-9 py-6 *:mt-2 *:py-1.5 *:text-[18px] *:font-semibold",
                   )}
                 >
-                  {children?.map((secondMenu, index) => (
-                    <li key={secondMenu.langKey}>
-                      <Link
-                        href={secondMenu.link}
-                        onClick={(event) => movePage(event, secondMenu.link)}
-                      >
-                        {t(secondMenu.langKey)}
-                      </Link>
-                    </li>
-                  ))}
+                  {children
+                    ?.filter((it) => it.visible)
+                    .sort((a, b) => a.order - b.order)
+                    .map((secondMenu, index) => (
+                      <li key={secondMenu.langKey}>
+                        <Link
+                          href={secondMenu.link}
+                          onClick={(event) => movePage(event, secondMenu.link)}
+                        >
+                          {t(secondMenu.langKey)}
+                        </Link>
+                      </li>
+                    ))}
                 </ul>
               </div>
             </div>
