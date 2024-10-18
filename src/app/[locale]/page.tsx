@@ -9,15 +9,15 @@ type Props = {
 };
 
 export default async function Home({ params: { locale } }: Props) {
-  const { t } = await useTranslation({ locale, namespace: "translation" });
+  const { t } = await useTranslation({ locale, namespace: "home" });
 
   return (
     <>
       <section className="top-[80px] h-[calc(100vh-80px)] w-full overflow-hidden">
         <div className="absolute bottom-[10vh] z-10 w-full">
           <InViewHelper anyClass="space-y-10 text-center text-black">
-            <h1 className="text-5xl font-bold">{t("Home.title")}</h1>
-            <h2 className="text-lg font-semibold">{t("Home.subTitle")}</h2>
+            <h1 className="text-5xl font-bold">{t("title")}</h1>
+            <h2 className="text-lg font-semibold">{t("subTitle")}</h2>
           </InViewHelper>
         </div>
 
@@ -26,7 +26,7 @@ export default async function Home({ params: { locale } }: Props) {
 
       <InViewHelper>
         <h1 className="mt-32 text-5xl font-bold text-blue-500">
-          {t("Home.subTitle2")}
+          {t("subTitle2")}
         </h1>
       </InViewHelper>
 
@@ -44,7 +44,7 @@ export default async function Home({ params: { locale } }: Props) {
 
           <InViewHelper>
             <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
-              {t("Home.pumpEngineering")}
+              {t("pumpEngineering")}
             </p>
           </InViewHelper>
 
@@ -52,7 +52,7 @@ export default async function Home({ params: { locale } }: Props) {
             <p
               className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
               dangerouslySetInnerHTML={{
-                __html: t("Home.pumpEngineering.desc"),
+                __html: t("pumpEngineering.desc"),
               }}
             />
           </InViewHelper>
@@ -71,7 +71,7 @@ export default async function Home({ params: { locale } }: Props) {
 
           <InViewHelper>
             <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
-              {t("Home.cfd")}
+              {t("cfd")}
             </p>
           </InViewHelper>
 
@@ -79,7 +79,7 @@ export default async function Home({ params: { locale } }: Props) {
             <p
               className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
               dangerouslySetInnerHTML={{
-                __html: t("Home.cfd.desc"),
+                __html: t("desc"),
               }}
             />
           </InViewHelper>
@@ -102,7 +102,7 @@ export default async function Home({ params: { locale } }: Props) {
             outClass="translate-y-[1rem]"
           >
             <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
-              {t("Home.rotorDynamicsAnalaysis")}
+              {t("rotorDynamicsAnalaysis")}
             </p>
           </InViewHelper>
 
@@ -110,7 +110,7 @@ export default async function Home({ params: { locale } }: Props) {
             <p
               className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
               dangerouslySetInnerHTML={{
-                __html: t("Home.rotorDynamicsAnalaysis.desc"),
+                __html: t("rotorDynamicsAnalaysis.desc"),
               }}
             />
           </InViewHelper>
@@ -129,7 +129,7 @@ export default async function Home({ params: { locale } }: Props) {
 
           <InViewHelper>
             <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
-              {t("Home.structuralAnalysis")}
+              {t("structuralAnalysis")}
             </p>
           </InViewHelper>
 
@@ -137,7 +137,7 @@ export default async function Home({ params: { locale } }: Props) {
             <p
               className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
               dangerouslySetInnerHTML={{
-                __html: t("Home.structuralAnalysis.desc"),
+                __html: t("structuralAnalysis.desc"),
               }}
             />
           </InViewHelper>

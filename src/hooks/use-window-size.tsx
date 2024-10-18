@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 
+// TODO 요런 라이브러리르 정리하여 fos-ui로 배포해보자
 export default function useWindowSize() {
   const [windowSize, setWindowSize] = useState<{
     width?: number;

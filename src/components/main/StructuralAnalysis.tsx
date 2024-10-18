@@ -1,19 +1,22 @@
-import { MessageType } from "@/app/[locale]/layout";
+import { useTranslation } from "@/app/i18n/client";
 import MainMessage from "@/components/main/MainMessage";
 import { calcScrollEffect } from "@/lib/calc-scroll-effect";
 import classnames from "@/lib/classnames";
 import Image from "next/image";
 
+type Props = {
+  scrollRatio: number;
+  scrollHeight: number;
+  totalScrollHeight: number;
+};
+
 export default function StructuralAnalysis({
   scrollRatio,
   scrollHeight,
   totalScrollHeight,
-  translation,
-}: {
-  scrollRatio: number;
-  scrollHeight: number;
-  totalScrollHeight: number;
-} & MessageType) {
+}: Props) {
+  const { t } = useTranslation({ namespace: "home" });
+
   return (
     <>
       <Image
@@ -88,7 +91,7 @@ export default function StructuralAnalysis({
         }
       >
         <h1 className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-7xl font-semibold leading-relaxed text-transparent">
-          {translation.Home.structuralAnalysis}
+          {t("structuralAnalysis")}
         </h1>
       </MainMessage>
 
@@ -138,7 +141,7 @@ export default function StructuralAnalysis({
         <p
           className="max-w-[1000px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-center text-5xl font-semibold leading-relaxed text-transparent"
           dangerouslySetInnerHTML={{
-            __html: translation.Home["structuralAnalysis.desc"],
+            __html: t("structuralAnalysis.desc"),
           }}
         ></p>
       </MainMessage>

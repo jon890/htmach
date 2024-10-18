@@ -1,6 +1,6 @@
 "use client";
 
-import { LocaleType } from "@/types/locale-type";
+import { LocaleNamespaceType, LocaleType } from "@/types/locale-type";
 import i18next from "i18next";
 import LanguageDetector from "i18next-browser-languagedetector";
 import resourcesToBackend from "i18next-resources-to-backend";
@@ -42,7 +42,7 @@ export function useTranslation({
   options = {},
 }: {
   locale?: LocaleType;
-  namespace: string;
+  namespace: LocaleNamespaceType;
   options?: UseTranslationOptions<undefined>;
 }) {
   const [cookies, setCookie] = useCookies([I18NEXT_COOKIE_NAME]);

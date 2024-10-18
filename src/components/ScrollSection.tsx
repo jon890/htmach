@@ -1,21 +1,20 @@
 "use client";
 
-import useWindowDimensions from "@/hooks/useWindow";
 import { useEffect, useRef, useState } from "react";
 import ComputationalFluidDynamics from "./main/ComputationalFluidDynamics";
 import PumpEngineering from "./main/PumpEngineering";
 import Remanufacturing from "./main/Remanufacturing";
 import RotorDynamicsAnalysis from "./main/RotorDynamicsAnalysis";
 import StructuralAnalysis from "./main/StructuralAnalysis";
-import { LocaleParmas, MessageType } from "@/app/[locale]/layout";
+import useWindowSize from "@/hooks/use-window-size";
+import { LocaleType } from "@/types/locale-type";
 
-export default function ScrollSection({
-  locale,
-  translation,
-}: LocaleParmas & MessageType) {
+type Props = {};
+
+export default function ScrollSection() {
   const containerRef = useRef<HTMLElement>(null);
 
-  const { dimension } = useWindowDimensions();
+  const dimension = useWindowSize();
   const [totalScrollHeight, setTotalScrollHeight] = useState(0);
   const prevHeight = dimension.height ?? 0;
 
@@ -62,35 +61,30 @@ export default function ScrollSection({
         scrollHeight={scrollHeight}
         scrollRatio={scrollRatio}
         totalScrollHeight={totalScrollHeight}
-        translation={translation}
       />
 
       <PumpEngineering
         scrollHeight={scrollHeight}
         scrollRatio={scrollRatio}
         totalScrollHeight={totalScrollHeight}
-        translation={translation}
       />
 
       <ComputationalFluidDynamics
         scrollHeight={scrollHeight}
         scrollRatio={scrollRatio}
         totalScrollHeight={totalScrollHeight}
-        translation={translation}
       />
 
       <StructuralAnalysis
         scrollHeight={scrollHeight}
         scrollRatio={scrollRatio}
         totalScrollHeight={totalScrollHeight}
-        translation={translation}
       />
 
       <RotorDynamicsAnalysis
         scrollHeight={scrollHeight}
         scrollRatio={scrollRatio}
         totalScrollHeight={totalScrollHeight}
-        translation={translation}
       />
     </section>
   );

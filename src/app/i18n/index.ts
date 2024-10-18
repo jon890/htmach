@@ -30,6 +30,7 @@ export async function useTranslation({
   options?: {};
 }) {
   const i18nInstance = await initI18next(locale, namespace);
+
   return {
     t: i18nInstance.getFixedT(
       locale,

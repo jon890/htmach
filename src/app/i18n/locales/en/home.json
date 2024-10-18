@@ -1,0 +1,15 @@
+{
+  "title": "Everything about rotating machinery, accompanied by HTM.",
+  "subTitle": "Based on the high-efficiency design of rotary equipment, we strive to achieve the best results that meet the needs of our customers.",
+  "subTitle2": "Introduction to Business Areas",
+  "remanufacturing": "Remanufacturing",
+  "remanufacturing.desc": "We possess capabilities in rotor design and reverse engineering for pumps through our One-Stop Remanufacturing Service.",
+  "pumpEngineering": "Design",
+  "pumpEngineering.desc": "We implement high-level designs based on our capabilities in rotor design and reverse engineering for pumps, turbines, and compressors.",
+  "cfd": "Fluid Analysis",
+  "cfd.desc": "We predict the efficiency and performance of rotors through Computational Fluid Dynamics (CFD).",
+  "structuralAnalysis": "Structural Analysis",
+  "structuralAnalysis.desc": "We possess capabilities in Structural Analysis (CAE) to ensure the robustness of rotors.",
+  "rotorDynamicsAnalaysis": "Shaft System Analysis",
+  "rotorDynamicsAnalaysis.desc": "We establish designs that ensure stability through rotor dynamics analysis for shaft systems."
+}
