@@ -1,10 +1,9 @@
 import { getMessages } from "@/lib/get-messages";
-import { MapIcon, PhoneIcon } from "@heroicons/react/16/solid";
-import { LocaleType } from "@/types/locale-type";
 import { cn } from "@/lib/utils";
-import LogoImage from "../common/logo-image";
-import DividerY from "../common/divider-y";
-import DividerX from "../common/divider-x";
+import { LocaleType } from "@/types/locale-type";
+import DividerX from "@/components/common/divider-x";
+import DividerY from "@/components/common/divider-y";
+import LogoImage from "@/components/common/logo-image";
 
 type Props = {
   locale: LocaleType;
@@ -25,7 +24,6 @@ export default async function Footer({ locale }: Props) {
           <LogoImage />
         </div>
 
-        {/* Divider */}
         <DividerX className="my-6 hidden bg-white bg-opacity-30 lg:block" />
 
         <div className="mt-8 flex flex-col text-center lg:mt-0 lg:text-start">
@@ -39,9 +37,9 @@ export default async function Footer({ locale }: Props) {
               "pc lg:items-center lg:justify-start lg:text-base",
             )}
           >
-            <p>TEL : {t.Footer.email}</p>
+            <p>TEL : {t.Footer.tel}</p>
             <DividerY className="mx-3 mt-1 h-[13px] bg-[#A0A8C2] lg:mt-0" />
-            <p>FAX : {t.Footer.email}</p>
+            <p>FAX : {t.Footer.fax}</p>
             <DividerY className="mx-3 mt-1 h-[13px] bg-[#A0A8C2] lg:mt-0" />
             <p>Email : {t.Footer.email}</p>
           </div>

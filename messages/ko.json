@@ -15,8 +15,10 @@
     "rotorDynamicsAnalaysis.desc": "축계의 안정성을 확보하기 위한 회전체 동역학을 통해 안정성을 확보한 설계를 구축합니다."
   },
   "Footer": {
-    "address": "부산광역시 금정구 부산대학로63번길 2 (장전동) 제 1공학관 HTM",
-    "email": "junho@htmach.co.kr",
+    "address": "(46241) 부산광역시 금정구 부산대학로63번길 2, 303호(장전동, 효원산학협동관)",
+    "email": "support@highturbo.co.kr",
+    "fax": "070-7547-3343",
+    "tel": "051-711-2361",
     "rights": "Copyright 2024 HTM. All Rights Reserved."
   },
   "Common": {
