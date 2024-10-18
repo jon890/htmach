@@ -11,7 +11,7 @@ import { LocaleType } from "@/types/locale-type";
 import { Check, ChevronsUpDown } from "lucide-react";
 import { usePathname, useRouter } from "next/navigation";
 import React from "react";
-import { i18n } from "../i18n-config";
+import { i18n } from "../i18n";
 import {
   Command,
   CommandEmpty,

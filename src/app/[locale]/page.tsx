@@ -1,23 +1,23 @@
 import InViewHelper from "@/components/InViewHelper";
-import Languages from "@/lib/server/languages";
 import Image from "next/image";
-import { LocaleParmas } from "./layout";
+import { useTranslation } from "@/app/i18n";
 import MainImages from "./main-images";
+import { LocaleType } from "@/types/locale-type";
 
-export default async function Home({
-  params: { locale },
-}: {
-  params: LocaleParmas;
-}) {
-  const t = await Languages.ofLocale(locale);
+type Props = {
+  params: { locale: LocaleType };
+};
+
+export default async function Home({ params: { locale } }: Props) {
+  const { t } = await useTranslation(locale, "translation");
 
   return (
     <>
       <section className="top-[80px] h-[calc(100vh-80px)] w-full overflow-hidden">
         <div className="absolute bottom-[10vh] z-10 w-full">
           <InViewHelper anyClass="space-y-10 text-center text-black">
-            <h1 className="text-5xl font-bold">{t.Home.title}</h1>
-            <h2 className="text-lg font-semibold">{t.Home.subTitle}</h2>
+            <h1 className="text-5xl font-bold">{t("Home.title")}</h1>
+            <h2 className="text-lg font-semibold">{t("Home.subTitle")}</h2>
           </InViewHelper>
         </div>
 
@@ -26,7 +26,7 @@ export default async function Home({
 
       <InViewHelper>
         <h1 className="mt-32 text-5xl font-bold text-blue-500">
-          {t.Home.subTitle2}
+          {t("Home.subTitle2")}
         </h1>
       </InViewHelper>
 
@@ -44,7 +44,7 @@ export default async function Home({
 
           <InViewHelper>
             <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
-              {t.Home.pumpEngineering}
+              {t("Home.pumpEngineering")}
             </p>
           </InViewHelper>
 
@@ -52,7 +52,7 @@ export default async function Home({
             <p
               className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
               dangerouslySetInnerHTML={{
-                __html: t.Home["pumpEngineering.desc"],
+                __html: t("Home.pumpEngineering.desc"),
               }}
             />
           </InViewHelper>
@@ -71,7 +71,7 @@ export default async function Home({
 
           <InViewHelper>
             <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
-              {t.Home.cfd}
+              {t("Home.cfd")}
             </p>
           </InViewHelper>
 
@@ -79,7 +79,7 @@ export default async function Home({
             <p
               className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
               dangerouslySetInnerHTML={{
-                __html: t.Home["cfd.desc"],
+                __html: t("Home.cfd.desc"),
               }}
             />
           </InViewHelper>
@@ -102,7 +102,7 @@ export default async function Home({
             outClass="translate-y-[1rem]"
           >
             <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
-              {t.Home.rotorDynamicsAnalaysis}
+              {t("Home.rotorDynamicsAnalaysis")}
             </p>
           </InViewHelper>
 
@@ -110,7 +110,7 @@ export default async function Home({
             <p
               className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
               dangerouslySetInnerHTML={{
-                __html: t.Home["rotorDynamicsAnalaysis.desc"],
+                __html: t("Home.rotorDynamicsAnalaysis.desc"),
               }}
             />
           </InViewHelper>
@@ -129,7 +129,7 @@ export default async function Home({
 
           <InViewHelper>
             <p className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-3xl font-semibold leading-relaxed text-transparent">
-              {t.Home.structuralAnalysis}
+              {t("Home.structuralAnalysis")}
             </p>
           </InViewHelper>
 
@@ -137,7 +137,7 @@ export default async function Home({
             <p
               className="max-w-[500px] bg-gradient-to-b from-black to-slate-800 bg-clip-text text-xl font-semibold leading-relaxed text-transparent"
               dangerouslySetInnerHTML={{
-                __html: t.Home["structuralAnalysis.desc"],
+                __html: t("Home.structuralAnalysis.desc"),
               }}
             />
           </InViewHelper>

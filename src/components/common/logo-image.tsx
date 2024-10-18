@@ -1,6 +1,6 @@
-import Image from "next/image";
-import LinkWithLocale from "../LinkWithLocale";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
 type Props = {
   textClassName?: string;
@@ -8,7 +8,7 @@ type Props = {
 
 export default function LogoImage({ textClassName }: Props) {
   return (
-    <LinkWithLocale
+    <Link
       href=""
       className="mr-auto flex flex-row items-center justify-center gap-2 text-3xl font-bold"
     >
@@ -19,6 +19,6 @@ export default function LogoImage({ textClassName }: Props) {
         alt="htm_logo"
       />
       <span className={cn("text-white", textClassName)}>HTM</span>
-    </LinkWithLocale>
+    </Link>
   );
 }

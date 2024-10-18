@@ -1,14 +1,11 @@
 import InViewHelper from "@/components/InViewHelper";
-import Languages from "@/lib/server/languages";
-import Image from "next/image";
-import { LocaleParmas } from "../layout";
 
-export default async function MadynPage({
-  params: { locale },
-}: {
-  params: LocaleParmas;
-}) {
-  const t = await Languages.ofLocale(locale);
+import Image from "next/image";
+import { useTransition } from "react";
+import { useTranslation } from "react-i18next";
+
+export default async function MadynPage() {
+  const { t } = useTranslation();
 
   return (
     <section className="flex min-h-screen w-full flex-col items-center justify-center bg-black px-10 pt-16 text-white">
@@ -32,7 +29,7 @@ export default async function MadynPage({
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
-            <h1 className="text-7xl font-bold">{t.madyn.title}</h1>
+            <h1 className="text-7xl font-bold">{t("madyn.title")}</h1>
           </InViewHelper>
 
           <InViewHelper
@@ -40,7 +37,7 @@ export default async function MadynPage({
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
-            <h2 className="text-5xl font-semibold">{t.madyn.subTitle}</h2>
+            <h2 className="text-5xl font-semibold">{t("madyn.subTitle")}</h2>
           </InViewHelper>
 
           <InViewHelper
@@ -48,7 +45,7 @@ export default async function MadynPage({
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
-            <p className="text-xl font-medium leading-8">{t.madyn.desc}</p>
+            <p className="text-xl font-medium leading-8">{t("madyn.desc")}</p>
           </InViewHelper>
 
           <InViewHelper
@@ -57,7 +54,7 @@ export default async function MadynPage({
             outClass="translate-y-[1rem]"
           >
             <button className="flex w-1/3 flex-row items-center justify-center space-x-1 rounded-md bg-blue-500 px-4 py-4 text-lg font-medium">
-              <span>{t.madyn.inquery}</span>
+              <span>{t("madyn.inquery")}</span>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -116,7 +113,7 @@ export default async function MadynPage({
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
-            <h2 className="text-5xl font-semibold">{t.madyn.title2}</h2>
+            <h2 className="text-5xl font-semibold">{t("madyn.title2")}</h2>
           </InViewHelper>
 
           <InViewHelper
@@ -124,7 +121,7 @@ export default async function MadynPage({
             inClass="opacity-100"
             outClass="translate-y-[1rem]"
           >
-            <p className="text-xl font-medium leading-8">{t.madyn.desc2}</p>
+            <p className="text-xl font-medium leading-8">{t("madyn.desc2")}</p>
           </InViewHelper>
 
           <InViewHelper
@@ -148,7 +145,7 @@ export default async function MadynPage({
                     d="M15.182 15.182a4.5 4.5 0 0 1-6.364 0M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75Zm-.375 0h.008v.015h-.008V9.75Z"
                   />
                 </svg>
-                <span>{t.madyn.property1}</span>
+                <span>{t("madyn.property1")}</span>
               </li>
               <li>
                 <svg
@@ -165,7 +162,7 @@ export default async function MadynPage({
                     d="M6 6.878V6a2.25 2.25 0 0 1 2.25-2.25h7.5A2.25 2.25 0 0 1 18 6v.878m-12 0c.235-.083.487-.128.75-.128h10.5c.263 0 .515.045.75.128m-12 0A2.25 2.25 0 0 0 4.5 9v.878m13.5-3A2.25 2.25 0 0 1 19.5 9v.878m0 0a2.246 2.246 0 0 0-.75-.128H5.25c-.263 0-.515.045-.75.128m15 0A2.25 2.25 0 0 1 21 12v6a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 18v-6c0-.98.626-1.813 1.5-2.122"
                   />
                 </svg>
-                <span>{t.madyn.property2}</span>
+                <span>{t("madyn.property2")}</span>
               </li>
               <li>
                 <svg
@@ -187,7 +184,7 @@ export default async function MadynPage({
                     d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
                   />
                 </svg>
-                <span>{t.madyn.property3}</span>
+                <span>{t("madyn.property3")}</span>
               </li>
               <li>
                 <svg
@@ -204,7 +201,7 @@ export default async function MadynPage({
                     d="M11.42 15.17 17.25 21A2.652 2.652 0 0 0 21 17.25l-5.877-5.877M11.42 15.17l2.496-3.03c.317-.384.74-.626 1.208-.766M11.42 15.17l-4.655 5.653a2.548 2.548 0 1 1-3.586-3.586l6.837-5.63m5.108-.233c.55-.164 1.163-.188 1.743-.14a4.5 4.5 0 0 0 4.486-6.336l-3.276 3.277a3.004 3.004 0 0 1-2.25-2.25l3.276-3.276a4.5 4.5 0 0 0-6.336 4.486c.091 1.076-.071 2.264-.904 2.95l-.102.085m-1.745 1.437L5.909 7.5H4.5L2.25 3.75l1.5-1.5L7.5 4.5v1.409l4.26 4.26m-1.745 1.437 1.745-1.437m6.615 8.206L15.75 15.75M4.867 19.125h.008v.008h-.008v-.008Z"
                   />
                 </svg>
-                <span>{t.madyn.property4}</span>
+                <span>{t("madyn.property4")}</span>
               </li>
             </ul>
           </InViewHelper>
@@ -218,7 +215,7 @@ export default async function MadynPage({
           outClass="translate-y-[1rem]"
         >
           <h2 className="min-w-[250px] text-3xl font-semibold">
-            {t.madyn.title3}
+            {t("madyn.title3")}
           </h2>
         </InViewHelper>
 
@@ -228,12 +225,12 @@ export default async function MadynPage({
           outClass="translate-y-[1rem]"
         >
           <ul className="grid list-none grid-cols-3 gap-10 *:bg-gradient-to-r *:from-indigo-500 *:to-pink-500 *:bg-clip-text *:text-3xl *:font-bold *:text-transparent">
-            <li>{t.madyn.keyword1}</li>
-            <li>{t.madyn.keyword2}</li>
-            <li>{t.madyn.keyword3}</li>
-            <li>{t.madyn.keyword4}</li>
-            <li>{t.madyn.keyword5}</li>
-            <li>{t.madyn.keyword6}</li>
+            <li>{t("madyn.keyword1")}</li>
+            <li>{t("madyn.keyword2")}</li>
+            <li>{t("madyn.keyword3")}</li>
+            <li>{t("madyn.keyword4")}</li>
+            <li>{t("madyn.keyword5")}</li>
+            <li>{t("madyn.keyword6")}</li>
           </ul>
         </InViewHelper>
       </article>
@@ -245,7 +242,7 @@ export default async function MadynPage({
           outClass="translate-y-[1rem]"
         >
           <h2 className="min-w-[250px] text-3xl font-semibold">
-            {t.madyn.title4}
+            {t("madyn.title4")}
           </h2>
         </InViewHelper>
 
@@ -255,12 +252,12 @@ export default async function MadynPage({
           outClass="translate-y-[1rem]"
         >
           <ul className="grid list-none grid-cols-3 gap-10 *:bg-gradient-to-r *:from-indigo-500 *:to-pink-500 *:bg-clip-text *:text-3xl *:font-bold *:text-transparent">
-            <li>{t.madyn.keyword1}</li>
-            <li>{t.madyn.keyword2}</li>
-            <li>{t.madyn.keyword3}</li>
-            <li>{t.madyn.keyword4}</li>
-            <li>{t.madyn.keyword5}</li>
-            <li>{t.madyn.keyword6}</li>
+            <li>{t("madyn.keyword1")}</li>
+            <li>{t("madyn.keyword2")}</li>
+            <li>{t("madyn.keyword3")}</li>
+            <li>{t("madyn.keyword4")}</li>
+            <li>{t("madyn.keyword5")}</li>
+            <li>{t("madyn.keyword6")}</li>
           </ul>
         </InViewHelper>
       </article>
