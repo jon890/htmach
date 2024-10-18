@@ -9,6 +9,7 @@ type Props = {
   locale: LocaleType;
 };
 
+// TODO : HTM 대표 색상으로 수정
 export default async function Footer({ locale }: Props) {
   const t = await getMessages(locale);
 
