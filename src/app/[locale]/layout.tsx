@@ -1,21 +1,18 @@
+import "@/app/[locale]/globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/layout/footer";
+import NavBar from "@/components/layout/navbar";
+import { FONT_PRETENDARD } from "@/lib/font-lib";
 import { type getMessages } from "@/lib/get-messages";
 import { cn } from "@/lib/utils";
-import "@/styles/globals.css";
+import { LocaleType } from "@/types/locale-type";
 import { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
-import { LocaleType } from "@/types/locale-type";
 
 export type LocaleParmas = { locale: LocaleType };
 export type MessageType = {
   translation: Awaited<ReturnType<typeof getMessages>>;
 };
-
-const fontSans = FontSans({
-  subsets: ["latin"],
-  variable: "--font-sans",
-});
 
 export async function generateStaticParams() {
   return [{ locale: "ko" }, { locale: "en" }];
@@ -35,14 +32,10 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang={locale}>
-      <body
-        className={cn(
-          "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
-        )}
-      >
+      <body className={FONT_PRETENDARD.className}>
         <main className="mt-20 flex flex-col items-center justify-between">
-          <Header locale={locale} />
+          <NavBar />
+          {/* <Header locale={locale} /> */}
           {children}
           <Footer locale={locale} />
         </main>

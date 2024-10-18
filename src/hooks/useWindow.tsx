@@ -4,13 +4,20 @@ import { useEffect, useState } from "react";
 
 function getDimension() {
   if (typeof window === "undefined") {
-    return { width: 0, height: 0 };
+    return {
+      width: undefined,
+      height: undefined,
+      isMobile: undefined,
+      scrollbarWidth: undefined,
+    };
   }
 
   const { innerWidth: width, innerHeight: height } = window;
   return {
     width,
     height,
+    isMobile: width < 1024,
+    scrollbarWidth: width - document.body.clientWidth,
   };
 }
 
@@ -29,5 +36,5 @@ export default function useWindow() {
     };
   }, []);
 
-  return { dimension };
+  return { dimension, isMobile: dimension.isMobile };
 }
