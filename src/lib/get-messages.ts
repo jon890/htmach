@@ -1,3 +1,4 @@
+import { LocaleType } from "@/types/locale-type";
 import "server-only";
 
 const messages = {
@@ -5,4 +6,4 @@ const messages = {
   ko: () => import("../../messages/ko.json").then((module) => module.default),
 };
 
-export const getMessages = async (locale: "en" | "ko") => messages[locale]();
+export const getMessages = async (locale: LocaleType) => messages[locale]();

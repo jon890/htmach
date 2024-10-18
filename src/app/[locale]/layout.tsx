@@ -1,13 +1,13 @@
-import Footer from "@/components/Footer";
 import Header from "@/components/Header";
+import Footer from "@/components/layout/footer";
 import { type getMessages } from "@/lib/get-messages";
 import { cn } from "@/lib/utils";
 import "@/styles/globals.css";
 import { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
-import { Locale } from "../../i18n-config";
+import { LocaleType } from "@/types/locale-type";
 
-export type LocaleParmas = { locale: Locale };
+export type LocaleParmas = { locale: LocaleType };
 export type MessageType = {
   translation: Awaited<ReturnType<typeof getMessages>>;
 };
