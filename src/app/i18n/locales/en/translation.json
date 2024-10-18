@@ -1,26 +1,5 @@
 {
   "Common": {
     "preparing": "Preparing"
-  },
-
-  "madyn": {
-    "title": "MADYN 2000",
-    "subTitle": "Rotordynamics Analysis Software",
-    "desc": "MADYN 2000 provides the ultimate solution for rotordynamics analysis of turbomachinery. With MADYN 2000, you can ensure smooth operation and long lifespan of your machinery through precise and robust design reviews. From small automotive turbochargers to large shaft trains producing several hundred to thousand megawatts, MADYN 2000 is used across a wide range of industries. Experience MADYN 2000 today.",
-    "inquery": "Inquire",
-    "title2": "Extensive Industrial Experience and Expertise",
-    "desc2": "MADYN is Delta's specialized rotordynamics analysis software based on research originating from the Technical University of Darmstadt, Germany. Developed over more than 20 years of research since the 1970s, MADYN offers comprehensive engineering and consulting services in the field of rotordynamics. It is applicable to turbo machinery for industrial, power generation, and propulsion, and has evolved through collaboration with clients across diverse fields over many years. User-friendly MADYN, based on extensive research and expertise, includes the following features:",
-    "property1": "Convenient analysis condition settings and modeling",
-    "property2": "Object-oriented data structure and library generation",
-    "property3": "Various options for rotordynamics performance analysis and automation",
-    "property4": "Coupling analysis and optimization including various types of gears, bearings, seals, and shafts",
-    "title3": "Special Modeling Features",
-    "keyword1": "MADYN 2000",
-    "keyword2": "Rotordynamic program",
-    "keyword3": "Magnetic bearings",
-    "keyword4": "Lateral, torsional, and axial vibrations",
-    "keyword5": "Fluid film bearings",
-    "keyword6": "Couplings and stability analysis",
-    "title4": "Powerful Analysis Capabilities"
   }
 }
