@@ -1,10 +1,15 @@
 "use client";
 
-import useWindow from "@/hooks/useWindow";
+import useWindowSize from "@/hooks/use-window-size";
 import PcNavBar from "./pc-navbar";
+import { LocaleType } from "@/types/locale-type";
 
-export default function NavBar() {
-  const { isMobile } = useWindow();
+type Props = {
+  locale: LocaleType;
+};
+
+export default function NavBar({ locale }: Props) {
+  const { isMobile } = useWindowSize();
 
   if (isMobile === undefined) return null;
 
@@ -12,5 +17,5 @@ export default function NavBar() {
     return <div>Mobile</div>;
   }
 
-  return <PcNavBar />;
+  return <PcNavBar locale={locale} />;
 }

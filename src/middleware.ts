@@ -1,5 +1,9 @@
 import acceptLanguage from "accept-language";
-import { cookieName, languages, fallbackLng } from "./app/i18n/settings";
+import {
+  I18NEXT_COOKIE_NAME,
+  languages,
+  fallbackLng,
+} from "./app/i18n/settings";
 import { NextRequest, NextResponse } from "next/server";
 
 acceptLanguage.languages(languages);
@@ -13,8 +17,8 @@ export const config = {
 
 export function middleware(req: NextRequest) {
   let lng;
-  if (req.cookies.has(cookieName)) {
-    lng = acceptLanguage.get(req.cookies.get(cookieName)?.value);
+  if (req.cookies.has(I18NEXT_COOKIE_NAME)) {
+    lng = acceptLanguage.get(req.cookies.get(I18NEXT_COOKIE_NAME)?.value);
   }
   if (!lng) lng = acceptLanguage.get(req.headers.get("Accept-Language"));
   if (!lng) lng = fallbackLng;
@@ -36,7 +40,7 @@ export function middleware(req: NextRequest) {
     const localeInReferer = acceptLanguage.get(refererUrl.pathname);
     const response = NextResponse.next();
     if (localeInReferer) {
-      response.cookies.set(cookieName, localeInReferer);
+      response.cookies.set(I18NEXT_COOKIE_NAME, localeInReferer);
     }
     return response;
   }

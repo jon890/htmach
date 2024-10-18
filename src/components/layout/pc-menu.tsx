@@ -4,13 +4,17 @@ import { cn } from "@/lib/utils";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { HTM_VISIBLE_MENU } from "@/constants/menu.const";
+import { useTranslation } from "@/app/i18n/client";
+import { LocaleType } from "@/types/locale-type";
 
 type Props = {
   onChangeVisibleMenu?: (visible: boolean) => void;
+  locale: LocaleType;
 };
 
-export default function PcMenu({ onChangeVisibleMenu }: Props) {
+export default function PcMenu({ onChangeVisibleMenu, locale }: Props) {
   const [visibleMenu, setVisibleMenu] = useState(false);
+  const { t } = useTranslation({ locale, namespace: "menu" });
   const router = useRouter();
 
   function showMenu() {
@@ -46,7 +50,7 @@ export default function PcMenu({ onChangeVisibleMenu }: Props) {
                 "hover:border-text-blue-500 border-b-2 border-transparent py-[37px] transition-colors hover:text-blue-500",
               )}
             >
-              {langKey}
+              {t(langKey)}
             </button>
           </li>
         ))}

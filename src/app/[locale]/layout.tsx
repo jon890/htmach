@@ -27,8 +27,7 @@ export default function LocaleLayout({
     <html lang={locale} dir={dir(locale)}>
       <body className={FONT_PRETENDARD.className}>
         <main className="mt-20 flex flex-col items-center justify-between">
-          <NavBar />
-
+          <NavBar locale={locale} />
           {children}
           <Footer locale={locale} />
         </main>

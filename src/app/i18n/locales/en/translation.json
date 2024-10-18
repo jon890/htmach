@@ -14,24 +14,11 @@
     "rotorDynamicsAnalaysis": "Shaft System Analysis",
     "rotorDynamicsAnalaysis.desc": "We establish designs that ensure stability through rotor dynamics analysis for shaft systems."
   },
-  "Footer": {
-    "address": "1st Engineering Building HTM, 2 Busandaehak-ro 63beon-gil, Geumjeong-gu, Busan, Republic of Korea",
-    "email": "support@highturbo.co.kr",
-    "fax": "070-7547-3343",
-    "tel": "051-711-2361",
-    "rights": "Copyright &#169; 2023 HTM. All Rights Reserved."
-  },
+
   "Common": {
     "preparing": "Preparing"
   },
-  "Menu": {
-    "madyn": "MADYN",
-    "company-introduce": "About us",
-    "business-area": "Business Areas",
-    "technilogy-status": "Technology Status",
-    "performance-cases": "Performance/Cases",
-    "help": "Contact"
-  },
+
   "madyn": {
     "title": "MADYN 2000",
     "subTitle": "Rotordynamics Analysis Software",

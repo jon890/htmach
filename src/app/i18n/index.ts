@@ -1,7 +1,8 @@
 import { createInstance } from "i18next";
 import { initReactI18next } from "react-i18next/initReactI18next";
 import resourcesToBackend from "i18next-resources-to-backend";
-import { getOptions, LocaleType } from "./settings";
+import { getOptions } from "./settings";
+import { LocaleNamespaceType, LocaleType } from "@/types/locale-type";
 
 const initI18next = async (locale: LocaleType, namespace: string) => {
   const i18nInstance = createInstance();
@@ -19,11 +20,15 @@ const initI18next = async (locale: LocaleType, namespace: string) => {
   return i18nInstance;
 };
 
-export async function useTranslation(
-  locale: LocaleType,
-  namespace: string,
-  options = {},
-) {
+export async function useTranslation({
+  locale,
+  namespace,
+  options,
+}: {
+  locale: LocaleType;
+  namespace: LocaleNamespaceType;
+  options?: {};
+}) {
   const i18nInstance = await initI18next(locale, namespace);
   return {
     t: i18nInstance.getFixedT(

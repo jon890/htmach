@@ -11,7 +11,7 @@ type Props = {
 
 // TODO : HTM 대표 색상으로 수정
 export default async function Footer({ locale }: Props) {
-  const { t } = await useTranslation(locale, "translation");
+  const { t } = await useTranslation({ locale, namespace: "footer" });
 
   return (
     <footer className="mt-20 w-full bg-[#212B4E] py-10 lg:py-7">
@@ -28,9 +28,7 @@ export default async function Footer({ locale }: Props) {
         <DividerX className="my-6 hidden bg-white bg-opacity-30 lg:block" />
 
         <div className="mt-8 flex flex-col text-center lg:mt-0 lg:text-start">
-          <p className="text-sm text-[#A0A8C2] lg:text-base">
-            {t("Footer.address")}
-          </p>
+          <p className="text-sm text-[#A0A8C2] lg:text-base">{t("address")}</p>
 
           <div
             className={cn(
@@ -38,15 +36,15 @@ export default async function Footer({ locale }: Props) {
               "pc lg:items-center lg:justify-start lg:text-base",
             )}
           >
-            <p>TEL : {t("Footer.tel")}</p>
+            <p>TEL : {t("tel")}</p>
             <DividerY className="mx-3 mt-1 h-[13px] bg-[#A0A8C2] lg:mt-0" />
-            <p>FAX : {t("Footer.fax")}</p>
+            <p>FAX : {t("fax")}</p>
             <DividerY className="mx-3 mt-1 h-[13px] bg-[#A0A8C2] lg:mt-0" />
-            <p>Email : {t("Footer.email")}</p>
+            <p>Email : {t("email")}</p>
           </div>
 
           <p className="mt-3 text-sm text-[#677195] lg:text-base">
-            {t("Footer.rights")}
+            {t("rights")}
           </p>
         </div>
       </div>

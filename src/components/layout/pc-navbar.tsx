@@ -1,12 +1,17 @@
 import useScrollHeight from "@/hooks/use-scroll-height";
-import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import LogoImage from "../common/logo-image";
 import { MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import LogoImage from "../common/logo-image";
 import PcMenu from "./pc-menu";
+import { LocaleType } from "@/types/locale-type";
 
-export default function PcNavBar() {
+type Props = {
+  locale: LocaleType;
+};
+
+export default function PcNavBar({ locale }: Props) {
   const [visibleMenu, setVisibleMenu] = useState(false);
   const { isTop } = useScrollHeight();
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -33,7 +38,7 @@ export default function PcNavBar() {
       <div className="just-center container flex h-full flex-row items-center font-bold">
         <LogoImage textClassName="bg-gradient-to-r from-blue-500 via-gray-500 to-black bg-clip-text text-transparent" />
 
-        <PcMenu />
+        <PcMenu locale={locale} />
 
         <div
           className={cn(

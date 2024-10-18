@@ -9,7 +9,7 @@ type Props = {
 };
 
 export default async function Home({ params: { locale } }: Props) {
-  const { t } = await useTranslation(locale, "translation");
+  const { t } = await useTranslation({ locale, namespace: "translation" });
 
   return (
     <>
