@@ -1,7 +1,11 @@
 {
   "title": "Everything about rotating machinery, accompanied by HTM.",
   "subTitle": "Based on the high-efficiency design of rotary equipment, we strive to achieve the best results that meet the needs of our customers.",
-  "subTitle2": "Introduction to Business Areas",
+
+  "business_introduce_prefix": "사업분야",
+  "business_introduce_suffix": "안내",
+  "business_introduce_desc": "HTM의 주요사업 정보를 안내합니다.",
+
   "remanufacturing": "Remanufacturing",
   "remanufacturing.desc": "We possess capabilities in rotor design and reverse engineering for pumps through our One-Stop Remanufacturing Service.",
   "pumpEngineering": "Design",
