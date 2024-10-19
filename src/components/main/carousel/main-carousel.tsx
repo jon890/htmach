@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import {
   Carousel,
   CarouselContent,
@@ -8,11 +7,11 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
-import Autoplay from "embla-carousel-autoplay";
-import { cn } from "@/lib/utils";
-import MainCarouselContent from "./main-carousel-content";
-import MainCarouselButton from "./main-carousel-button";
 import useWindowSize from "@/hooks/use-window-size";
+import { cn } from "@/lib/utils";
+import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image";
+import MainCarouselContent from "./main-carousel-content";
 
 const CAROUSEL_ITEMS = [
   { image: "/images/main/main1.jpg", alt: "bg_main" },
