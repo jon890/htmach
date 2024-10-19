@@ -21,8 +21,6 @@ export function middleware(req: NextRequest) {
   if (!lng) lng = acceptLanguage.get(req.headers.get("Accept-Language"));
   if (!lng) lng = fallbackLng;
 
-  console.log("pathname", req.nextUrl.pathname, "locale", lng);
-
   // Redirect if locale in path is not supported
   if (
     !languages.some((locale) =>

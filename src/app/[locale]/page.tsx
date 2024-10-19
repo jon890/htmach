@@ -1,8 +1,8 @@
-import InViewHelper from "@/components/InViewHelper";
-import Image from "next/image";
 import { useTranslation } from "@/app/i18n";
-import MainImages from "./main-images";
+import InViewHelper from "@/components/InViewHelper";
+import MainCarousel from "@/components/main/carousel/main-carousel";
 import { LocaleType } from "@/types/locale-type";
+import Image from "next/image";
 
 type Props = {
   params: { locale: LocaleType };
@@ -13,16 +13,7 @@ export default async function Home({ params: { locale } }: Props) {
 
   return (
     <>
-      <section className="top-[80px] h-[calc(100vh-80px)] w-full overflow-hidden">
-        <div className="absolute bottom-[10vh] z-10 w-full">
-          <InViewHelper anyClass="space-y-10 text-center text-black">
-            <h1 className="text-5xl font-bold">{t("title")}</h1>
-            <h2 className="text-lg font-semibold">{t("subTitle")}</h2>
-          </InViewHelper>
-        </div>
-
-        <MainImages />
-      </section>
+      <MainCarousel />
 
       <InViewHelper>
         <h1 className="mt-32 text-5xl font-bold text-blue-500">

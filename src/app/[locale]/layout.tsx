@@ -26,11 +26,11 @@ export default function LocaleLayout({
   return (
     <html lang={locale} dir={dir(locale)}>
       <body className={FONT_PRETENDARD.className}>
-        <main className="mt-20 flex flex-col items-center justify-between">
-          <NavBar locale={locale} />
-          {children}
-          <Footer locale={locale} />
-        </main>
+        <NavBar locale={locale} />
+
+        <main className="relative flex w-full flex-col">{children}</main>
+
+        <Footer locale={locale} />
       </body>
     </html>
   );
