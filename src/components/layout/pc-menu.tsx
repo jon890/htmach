@@ -16,8 +16,8 @@ type Props = {
 };
 
 export default function PcMenu({ onChangeVisibleMenu, locale }: Props) {
-  const [visibleMenu, setVisibleMenu] = useState(false);
   const { t } = useTranslation({ locale, namespace: "menu" });
+  const [visibleMenu, setVisibleMenu] = useState(false);
   const router = useRouter();
 
   function showMenu() {
@@ -46,7 +46,7 @@ export default function PcMenu({ onChangeVisibleMenu, locale }: Props) {
         onMouseEnter={() => showMenu()}
         onMouseLeave={() => hideMenu()}
       >
-        {HTM_VISIBLE_MENU.map(({ langKey, link }) => (
+        {HTM_VISIBLE_MENU.map(({ langKey }) => (
           <li key={langKey}>
             <button
               className={cn(
@@ -67,11 +67,11 @@ export default function PcMenu({ onChangeVisibleMenu, locale }: Props) {
         onMouseEnter={() => showMenu()}
         onMouseLeave={() => hideMenu()}
       >
-        <DividerX />
+        <DividerX className="bg-[#EEEEEE]" />
 
         <div className="container flex h-full w-full flex-row justify-between gap-5 px-10 pb-10 pt-6 container:px-0">
-          {HTM_VISIBLE_MENU.map(({ langKey, link, depth, children }) => (
-            <div key={langKey}>
+          {HTM_VISIBLE_MENU.map(({ langKey, children }) => (
+            <div key={langKey} className="flex-1">
               <div className="flex flex-row items-center justify-start gap-1">
                 <span className="text-base font-bold text-[#9d8e8e]">
                   {t(langKey)}
@@ -79,19 +79,20 @@ export default function PcMenu({ onChangeVisibleMenu, locale }: Props) {
                 <ChevronRightIcon className="size-[10px] text-[#AAAAAA]" />
               </div>
 
-              <div className="mt-3 rounded-md border">
+              <div className="mt-3 w-full rounded-md border">
                 <ul
                   className={cn(
-                    "px-9 py-6 *:mt-2 *:py-1.5 *:text-[18px] *:font-semibold",
+                    "w-full px-9 py-6 *:mt-2 *:py-1.5 *:text-center *:text-[18px] *:font-semibold",
                   )}
                 >
                   {children
                     ?.filter((it) => it.visible)
                     .sort((a, b) => a.order - b.order)
                     .map((secondMenu, index) => (
-                      <li key={secondMenu.langKey}>
+                      <li key={langKey}>
                         <Link
-                          href={secondMenu.link}
+                          className="transition-colors hover:font-bold hover:text-blue-500 active:font-bold active:text-blue-500"
+                          href={`/${locale}${secondMenu.link}`}
                           onClick={(event) => movePage(event, secondMenu.link)}
                         >
                           {t(secondMenu.langKey)}

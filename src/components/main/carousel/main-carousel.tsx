@@ -34,7 +34,7 @@ export default function MainCarousel() {
       <CarouselContent className="h-full w-full">
         {CAROUSEL_ITEMS.map((item, index) => (
           <CarouselItem className="h-screen w-full" key={index}>
-            <div className="relative h-[95vh] w-full">
+            <div className="relative h-[90vh] w-full lg:h-screen">
               <Image
                 src={item.image}
                 alt={item.alt}

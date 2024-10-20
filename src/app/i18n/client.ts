@@ -28,7 +28,7 @@ i18next
     ),
   )
   .init({
-    ...getOptions,
+    ...getOptions(),
     lng: undefined,
     detection: {
       order: ["path", "htmlTag", "cookie", "navigator"],
@@ -57,23 +57,18 @@ export function useTranslation({
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
-      if (i18n.resolvedLanguage !== activeLanguage) {
-        setActiveLanguage(i18n.resolvedLanguage);
-      }
+      if (i18n.resolvedLanguage === activeLanguage) return;
+      setActiveLanguage(i18n.resolvedLanguage);
     }, [activeLanguage, i18n.resolvedLanguage]);
 
     // eslint-disable-next-line react-hooks/rules-of-hooks
     useEffect(() => {
       if (!locale || i18n.resolvedLanguage === locale) return;
       i18n.changeLanguage(locale);
-    }, [i18n, locale]);
-
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    useEffect(() => {
-      if (cookies.i18next === locale) return;
-
-      setCookie(I18NEXT_COOKIE_NAME, locale, { path: "/" });
-    }, [locale, cookies.i18next]);
+      if (cookies.i18next !== locale) {
+        setCookie(I18NEXT_COOKIE_NAME, locale, { path: "/" });
+      }
+    }, [i18n, locale, cookies.i18next, setCookie]);
   }
 
   return ret;
