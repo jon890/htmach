@@ -16,7 +16,7 @@ export default function InViewHelper({
   outClass?: string;
 }) {
   return (
-    <InView triggerOnce={false} threshold={0.5}>
+    <InView triggerOnce={false} threshold={0.5} rootMargin="80px">
       {({ inView, ref, entry }) => (
         <div
           ref={ref}

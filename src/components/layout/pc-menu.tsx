@@ -70,8 +70,8 @@ export default function PcMenu({ onChangeVisibleMenu, locale }: Props) {
         <DividerX className="bg-[#EEEEEE]" />
 
         <div className="container flex h-full w-full flex-row justify-between gap-5 px-10 pb-10 pt-6 container:px-0">
-          {HTM_VISIBLE_MENU.map(({ langKey, children }) => (
-            <div key={langKey} className="flex-1">
+          {HTM_VISIBLE_MENU.map(({ langKey, children }, index) => (
+            <div key={langKey + index} className="flex-1">
               <div className="flex flex-row items-center justify-start gap-1">
                 <span className="text-base font-bold text-[#9d8e8e]">
                   {t(langKey)}
@@ -89,7 +89,7 @@ export default function PcMenu({ onChangeVisibleMenu, locale }: Props) {
                     ?.filter((it) => it.visible)
                     .sort((a, b) => a.order - b.order)
                     .map((secondMenu, index) => (
-                      <li key={langKey}>
+                      <li key={langKey + index}>
                         <Link
                           className="transition-colors hover:font-bold hover:text-blue-500 active:font-bold active:text-blue-500"
                           href={`/${locale}${secondMenu.link}`}

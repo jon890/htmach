@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
+  linkClassName?: string;
   textClassName?: string;
 
   /**
@@ -11,11 +12,18 @@ type Props = {
   isLink?: boolean;
 };
 
-export default function LogoImage({ textClassName, isLink = true }: Props) {
+export default function LogoImage({
+  linkClassName,
+  textClassName,
+  isLink = true,
+}: Props) {
   return isLink ? (
     <Link
       href="/"
-      className="mr-auto flex flex-row items-center justify-center gap-2 text-3xl font-bold"
+      className={cn(
+        "mr-auto flex flex-row items-center justify-center gap-2 text-3xl font-bold",
+        linkClassName,
+      )}
     >
       <Image
         src="/images/logo/htm_logo.png"
