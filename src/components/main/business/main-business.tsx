@@ -5,6 +5,7 @@ import InViewHelper from "@/components/InViewHelper";
 import useWindowSize from "@/hooks/use-window-size";
 import { cn } from "@/lib/utils";
 import PcMainBusiness from "./pc-main-business";
+import MobileMainBusiness from "./mobile-main-business";
 
 export default function MainBusiness() {
   const { t } = useTranslation({ namespace: "home" });
@@ -42,7 +43,7 @@ export default function MainBusiness() {
         </span>
       </InViewHelper>
 
-      {isMobile ? null : <PcMainBusiness />}
+      {isMobile ? <MobileMainBusiness /> : <PcMainBusiness />}
     </section>
   );
 }
