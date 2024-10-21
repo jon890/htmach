@@ -7,7 +7,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { PlusIcon } from "./plus-icon";
-import InViewHelper from "@/components/InViewHelper";
+import InViewHelper from "@/components/in-view-helper";
 
 export default function MobileMainBusiness() {
   const { t } = useTranslation({ namespace: "home" });

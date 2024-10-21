@@ -1,5 +1,5 @@
 import { useTranslation } from "@/app/i18n";
-import InViewHelper from "@/components/InViewHelper";
+import InViewHelper from "@/components/in-view-helper";
 import { LocaleType } from "@/types/locale-type";
 import Image from "next/image";
 

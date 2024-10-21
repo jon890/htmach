@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/app/i18n/client";
-import InViewHelper from "@/components/InViewHelper";
+import InViewHelper from "@/components/in-view-helper";
 import useWindowSize from "@/hooks/use-window-size";
 import { cn } from "@/lib/utils";
 import PcMainBusiness from "./pc-main-business";

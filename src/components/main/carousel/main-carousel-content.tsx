@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslation } from "@/app/i18n/client";
-import InViewHelper from "@/components/InViewHelper";
+import InViewHelper from "@/components/in-view-helper";
 import { cn } from "@/lib/utils";
 
 export default function MainCarouselContent() {
