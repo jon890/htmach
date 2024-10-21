@@ -6,6 +6,7 @@ import { dir } from "i18next";
 import { Metadata } from "next";
 import { languages } from "../i18n/settings";
 import { LocaleType } from "@/types/locale-type";
+import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "HTMACH",
@@ -25,7 +26,7 @@ export default function LocaleLayout({
 }) {
   return (
     <html lang={locale} dir={dir(locale)}>
-      <body className={FONT_PRETENDARD.className}>
+      <body className={"font-pretendard"}>
         <NavBar locale={locale} />
 
         <main className="relative flex w-full flex-col">{children}</main>
