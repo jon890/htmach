@@ -25,6 +25,9 @@ const config = {
         container: "1400px",
       },
       colors: {
+        box_border: "#DDDDDD",
+        htm_bg_deep_gray: "#F9F9F9",
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
