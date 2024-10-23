@@ -19,7 +19,7 @@ export default function SubTopArea({ className, imageSrc, title }: Props) {
         height={0}
         sizes="100vw"
         alt="bg_sub_top_area"
-        className="h-[200px] w-full object-cover"
+        className={cn("h-[200px] w-full object-cover")}
       />
       <p className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-3xl font-semibold text-white drop-shadow-lg lg:text-[40px]">
         {title}

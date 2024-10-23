@@ -5,6 +5,12 @@ export type HTM_MENU_TYPE = {
   visible: boolean;
   depth: number;
   children?: HTM_MENU_TYPE[];
+  breadcrumb?: { langKey: string; href: string }[];
+};
+
+const HOME_BREADCRUMB = {
+  langKey: "home",
+  href: "/",
 };
 
 /**
@@ -27,6 +33,13 @@ const HTM_MENU_CONST: HTM_MENU_TYPE[] = [
         order: 1,
         visible: true,
         depth: 2,
+        breadcrumb: [
+          HOME_BREADCRUMB,
+          {
+            langKey: "madyn",
+            href: "/madyn",
+          },
+        ],
       },
     ],
   },
@@ -43,6 +56,13 @@ const HTM_MENU_CONST: HTM_MENU_TYPE[] = [
         order: 1,
         visible: true,
         depth: 2,
+        breadcrumb: [
+          HOME_BREADCRUMB,
+          {
+            langKey: "introduce",
+            href: "/introduce",
+          },
+        ],
       },
 
       {
@@ -93,40 +113,54 @@ const HTM_MENU_CONST: HTM_MENU_TYPE[] = [
     ],
   },
   {
-    langKey: "technilogy-status",
+    langKey: "performance-cases",
     link: "#",
     order: 4,
-    visible: false,
-    depth: 1,
-  },
-  {
-    langKey: "performance-cases",
-    link: "/performance",
-    order: 5,
     visible: true,
     depth: 1,
     children: [
       {
         langKey: "performance-cases.license",
-        link: "/performance-cases/license",
-        order: 2,
+        link: "/board/license",
+        order: 1,
         visible: true,
         depth: 2,
+        breadcrumb: [
+          HOME_BREADCRUMB,
+          {
+            langKey: "performance-cases.license",
+            href: "/board/license",
+          },
+        ],
       },
 
       {
         langKey: "performance-cases.dissertation",
-        link: "/performance-cases/dissertation",
+        link: "/board/dissertation",
+        order: 2,
+        visible: true,
+        depth: 2,
+        breadcrumb: [
+          HOME_BREADCRUMB,
+          {
+            langKey: "performance-cases.dissertation",
+            href: "/board/dissertation",
+          },
+        ],
+      },
+      {
+        langKey: "performance-cases.performance",
+        link: "/board/performance",
         order: 3,
         visible: true,
         depth: 2,
-      },
-      {
-        langKey: "performance-cases",
-        link: "/performance-cases",
-        order: 4,
-        visible: true,
-        depth: 2,
+        breadcrumb: [
+          HOME_BREADCRUMB,
+          {
+            langKey: "performance-cases.performance",
+            href: "/board/performance",
+          },
+        ],
       },
     ],
   },
@@ -134,7 +168,7 @@ const HTM_MENU_CONST: HTM_MENU_TYPE[] = [
   {
     langKey: "help",
     link: "/help",
-    order: 6,
+    order: 5,
     visible: true,
     depth: 1,
     children: [
@@ -144,6 +178,13 @@ const HTM_MENU_CONST: HTM_MENU_TYPE[] = [
         order: 1,
         visible: true,
         depth: 2,
+        breadcrumb: [
+          HOME_BREADCRUMB,
+          {
+            langKey: "help",
+            href: "/help",
+          },
+        ],
       },
     ],
   },
@@ -152,3 +193,11 @@ const HTM_MENU_CONST: HTM_MENU_TYPE[] = [
 export const HTM_VISIBLE_MENU = HTM_MENU_CONST.filter(
   (it) => it.visible && it.depth === 1,
 ).sort((a, b) => a.order - b.order);
+
+const HTM_LEAF_MENUS = HTM_VISIBLE_MENU.filter(
+  (it) => it.children?.length ?? 0 > 0,
+).flatMap((it) => it.children ?? []);
+
+export function getCurrentMenu(pathname: string, locale: string) {
+  return HTM_LEAF_MENUS.find((it) => `/${locale}${it.link}` === pathname);
+}
